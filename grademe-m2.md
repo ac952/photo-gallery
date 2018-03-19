@@ -14,7 +14,7 @@ A Cornell student's submission of work for academic credit indicates that the wo
 
 1. **Type your *Full Name* below along with today's date.**
 2. **Save this file.**
-3. **Rename this file from *submit-m1.md* to *grademe-m1.md*.**
+3. **Rename this file from *submit-m2.md* to *grademe-m2.md*.**
 4. **Stage your changes.**
 5. **Commit the staged changes.**
 6. **Push your changes to GitHub.**
@@ -26,8 +26,8 @@ Note: Forgetting to commit, push, or check your assignment before the deadline i
 
 I affirm my awareness of the standards of the Cornell Code of Academic Integrity.
 
-Full Name:
+Full Name:Aileen Cai
 
-Date:
+Date:03/22/18
 
 ---

@@ -1,12 +1,14 @@
 # Project 3 - Design & Plan
 
-Your Name:
+Your Name: Aileen Cai ac952
 
 ## 1. Persona
 
-I've selected **[Abby/Patricia/Patrick/Tim]** as my persona.
+I've selected **[Abby]** as my persona.
 
 I've selected my persona because... [Tell us why you picked your persona in 1-3 sentences.]
+
+I've selected my persona because her motivations and attitudes toward technology is parallel to mine. My information processing style is also "burst-y" so I feel that our similarities would help me design a webpage that would be more user friendly to her.
 
 ## 2. Sketches & Wireframes
 
@@ -24,9 +26,17 @@ I've selected my persona because... [Tell us why you picked your persona in 1-3 
 
 [Describe the structure of your database. You may use words or a picture. A bulleted list is probably the simplest way to do this.]
 
-Table: movies
-* field 1: description...
-* field...
+In my database, I will have two tables. One primarily for the photos and another for the tags. The photos table will contain an id and name of the photo. The tags table will also contain an id and photo_id as the foreign key. Each field and their types are listed below.
+
+Table: photos
+* field 1: id INTEGER {PRIMARY KEY, NOT NULL, AUTO INCREMENT,UNIQUE}
+* field 2: photo_name TEXT {NOT_NULL}
+* field 3: photo_img BLOB {NOT NULL}
+
+Table: tags
+* field 1: id PRIMARY KEY, NOT NULL, AUTO INCREMENT,UNIQUE
+* field 2: tag_name TEXT {NOT_NULL}
+* field 3: photos_id BLOB {NOT NULL}
 
 ## 4. Database Query Plan
 
@@ -40,7 +50,17 @@ Table: movies
 
 * index.php - main page.
 * includes/init.php - stuff that useful for every web page.
-* TODO
+* includes/header.php - navigation bar for each page
+* gallery.php - contains a page with all the photos
+* landscape.php - (tag)contains a page with landscape photos
+* personal.php - (tag)contains a page with personal photos
+* animals.php -(tag)contains a page with animal photos
+* food.php -(tag)contains a page with food photos
+* cities.php -(tag)contains a page with city photos
+* login.php - login form page
+* logout.php - logout page
+* addphoto.php - upload photo form
+
 
 ### Pseudocode
 
@@ -49,35 +69,104 @@ Table: movies
 #### index.php
 
 ```
-Pseudocode for index.php...
-
 include init.php
 
-TODO
+welcome screen using html and static photos in processing
+button on right hand corner to log in.
 ```
 
 #### includes/init.php
 
 ```
+make an array for pages
 messages = array to store messages for user (you may remove this)
 
 // DB helper functions (you do not need to write this out since they are provided.)
-
 db = connect to db
-
+make function for executing sql
+make function open_or_init_sqlite_db to check if sqlfile exists
 ...
 
 ```
 
-#### TODO
+#### includes/header.php - navigation bar for each page
+```
+navigation bar using html and php
+for loop for pages
+echo link of the page by getting page_id
+```
 
+#### gallery.php - contains a page with all the photos
+```
+include init.php
+create a connection to the sql Database
+$db = open_or_init_sqlite_db('photogallery.sqlite', "init/init.sql");
+make a function to execute the sql query, return null if query not returned
+function for getting the text(photo title) and photo_img
+echo the text by filtering (escape output)
+
+```
+
+#### landscape.php - (tag)contains a page with landscape photos
 ```
 TODO
 ```
+
+#### personal.php - (tag)contains a page with personal photos
+```
+TODO
+```
+
+#### animals.php -(tag)contains a page with animal photos
+```
+TODO
+```
+
+#### food.php -(tag)contains a page with food photos
+```
+TODO
+```
+
+#### cities.php -(tag)contains a page with city photos
+```
+TODO
+```
+
+#### login.php - login form page
+```
+include init.php
+login page id
+html form with text inputs:
+username:
+password:
+and submit button
+```
+
+#### logout.php - logout page
+```
+include init.php
+message to user that they have logged logout
+```
+
+#### addphoto.php - upload photo form
+```
+include init.php
+page id= add photos
+create a connection to the sql database created
+$db = open_or_init_sqlite_db('photogallery.sqlite', "init/init.sql");
+
+html multipart form with inputs:
+filter input for the photo name to make sure it is text using
+htmlspecialchars
+photo name:
+photo upload:
+and a submit value
+```
+
 
 ## 6. Seed Data - Username & Passwords
 
 [List the usernames and passwords for your users]
 
-* user1 : password1
-* TODO
+* ac952 : Cornell1
+* jt465 : Cornell22
