@@ -21,12 +21,21 @@ I've selected my persona because her motivations and attitudes toward technology
 [Insert your wireframes here.]
 
 [Explain why your design would be effective for your persona. 1-3 sentences.]
+My sketches meet the need of my personal because it is simple and intuitive.
+Since Abby is risk averse and has low confidence about doing unfamiliar tasks,
+I decided to place the login at the top of the home page only. All of the
+ options on the gallery(side bar) will be present at every
+page so that she won't have to look for the back button.
 
 ## 3. Database Schema Plan
 
-[Describe the structure of your database. You may use words or a picture. A bulleted list is probably the simplest way to do this.]
+[Describe the structure of your database. You may use words or a picture.
+A bulleted list is probably the simplest way to do this.]
 
-In my database, I will have two tables. One primarily for the photos and another for the tags. The photos table will contain an id and name of the photo. The tags table will also contain an id and photo_id as the foreign key. Each field and their types are listed below.
+In my database, I will have two tables. One primarily for the photos and
+another for the tags. The photos table will contain an id and name of the photo.
+ The tags table will also contain an id and photo_id as the foreign key. Each
+ field and their types are listed below.
 
 Table: photos
 * field 1: id INTEGER {PRIMARY KEY, NOT NULL, AUTO INCREMENT,UNIQUE}
@@ -41,6 +50,13 @@ Table: tags
 ## 4. Database Query Plan
 
 [Plan your database queries. You may use natural language, pseudocode, or SQL.]
+1. All records
+SQL: SELECT * FROM photos;
+2. Search photo by name
+SQL: "SELECT photo_img FROM photos WHERE photo_name = "waterfall.jpeg";
+3. Search photo by tags
+SQL: "SELECT photo_img FROM tags WHERE photos_id = 1;
+
 
 ## 5. Structure and Pseudocode
 
@@ -162,7 +178,6 @@ photo name:
 photo upload:
 and a submit value
 ```
-
 
 ## 6. Seed Data - Username & Passwords
 
