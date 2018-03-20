@@ -15,10 +15,16 @@ I've selected my persona because her motivations and attitudes toward technology
 ### Sketches
 
 [Insert your sketches here.]
+![](Scan.jpg)
 
 ### Wirefames
 
 [Insert your wireframes here.]
+![](home.jpg)
+![](gallery.jpg)
+![](upload.jpg)
+![](delete.jpg)
+![](login.jpg)
 
 [Explain why your design would be effective for your persona. 1-3 sentences.]
 My sketches meet the need of my personal because it is simple and intuitive.
