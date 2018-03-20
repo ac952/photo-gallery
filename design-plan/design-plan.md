@@ -105,8 +105,23 @@ messages = array to store messages for user (you may remove this)
 
 // DB helper functions (you do not need to write this out since they are provided.)
 db = connect to db
-make function for executing sql
+make function for executing sql with params $db, $sql, $params
+try: set query to prepare sql
+if there is sql and query executes params
+return the Query
+otherwise, catch the Pdo exception and handle the error
+else return null
+
 make function open_or_init_sqlite_db to check if sqlfile exists
+($db_filename, $init_sql_filename)
+if the file exists with $db_Filename as the argument,
+then db = connect the DB
+
+set $db_init_sql to contain file contents
+if $db_init_sql returns file contents then execute it
+return the result
+otherwise catch the exception error and handle it
+else return null value
 ...
 
 ```
@@ -114,7 +129,10 @@ make function open_or_init_sqlite_db to check if sqlfile exists
 #### includes/header.php - navigation bar for each page
 ```
 navigation bar using html and php
-for loop for pages
+for loop $pages as $page_id => page_name
+if the page id is equal to the $current_page_id
+then set the id to the current page
+else set it to empty string
 echo link of the page by getting page_id
 ```
 
@@ -131,33 +149,58 @@ echo the text by filtering (escape output)
 
 #### landscape.php - (tag)contains a page with landscape photos
 ```
-TODO
+include init.php
+create a connection to the sql Database
+$db = open_or_init_sqlite_db('photogallery.sqlite', "init/init.sql");
+make a function to execute the sql query, return null if query not returned
+function for getting the text(photo title) and photo_img
+echo the text by filtering (escape output)
 ```
 
 #### personal.php - (tag)contains a page with personal photos
 ```
-TODO
+include init.php
+create a connection to the sql Database
+$db = open_or_init_sqlite_db('photogallery.sqlite', "init/init.sql");
+make a function to execute the sql query, return null if query not returned
+function for getting the text(photo title) and photo_img
+echo the text by filtering (escape output)
 ```
 
 #### animals.php -(tag)contains a page with animal photos
 ```
-TODO
+include init.php
+create a connection to the sql Database
+$db = open_or_init_sqlite_db('photogallery.sqlite', "init/init.sql");
+make a function to execute the sql query, return null if query not returned
+function for getting the text(photo title) and photo_img
+echo the text by filtering (escape output)
 ```
 
 #### food.php -(tag)contains a page with food photos
 ```
-TODO
+include init.php
+create a connection to the sql Database
+$db = open_or_init_sqlite_db('photogallery.sqlite', "init/init.sql");
+make a function to execute the sql query, return null if query not returned
+function for getting the text(photo title) and photo_img
+echo the text by filtering (escape output)
 ```
 
 #### cities.php -(tag)contains a page with city photos
 ```
-TODO
+include init.php
+create a connection to the sql Database
+$db = open_or_init_sqlite_db('photogallery.sqlite', "init/init.sql");
+make a function to execute the sql query, return null if query not returned
+function for getting the text(photo title) and photo_img
+echo the text by filtering (escape output)
 ```
 
 #### login.php - login form page
 ```
 include init.php
-login page id
+set a login page id
 html form with text inputs:
 username:
 password:
@@ -173,7 +216,7 @@ message to user that they have logged logout
 #### addphoto.php - upload photo form
 ```
 include init.php
-page id= add photos
+set page id= add photos
 create a connection to the sql database created
 $db = open_or_init_sqlite_db('photogallery.sqlite', "init/init.sql");
 
