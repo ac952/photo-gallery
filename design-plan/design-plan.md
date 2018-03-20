@@ -92,7 +92,7 @@ SQL: "SELECT photo_img FROM tags WHERE photos_id = 1;
 
 ```
 include init.php
-
+create page id for the index page
 welcome screen using html and static photos in processing
 button on right hand corner to log in.
 ```
@@ -139,62 +139,129 @@ echo link of the page by getting page_id
 #### gallery.php - contains a page with all the photos
 ```
 include init.php
+create gallery page id
 create a connection to the sql Database
 $db = open_or_init_sqlite_db('photogallery.sqlite', "init/init.sql");
-make a function to execute the sql query, return null if query not returned
+make a function to execute the sql query,
+try: set query to prepare sql
+if there is sql and query executes params
+return the Query
+otherwise, catch the Pdo exception and handle the error
+return null if query not returned
+
 function for getting the text(photo title) and photo_img
 echo the text by filtering (escape output)
+
+make a function to get all the photos from sql
+$sql =  "SELECT * FROM photos;
+$params = array();
+
 
 ```
 
 #### landscape.php - (tag)contains a page with landscape photos
 ```
 include init.php
+create landscape page id
 create a connection to the sql Database
 $db = open_or_init_sqlite_db('photogallery.sqlite', "init/init.sql");
-make a function to execute the sql query, return null if query not returned
+make a function to execute the sql query,
+try: set query to prepare sql
+if there is sql and query executes params
+return the Query
+otherwise, catch the Pdo exception and handle the error
+return null if query not returned
+
 function for getting the text(photo title) and photo_img
 echo the text by filtering (escape output)
+
+make a function to get only photos_id from the tagged photo
+$sql= "SELECT photo_img FROM tags WHERE photos_id = 1;
+$params = array();
 ```
 
 #### personal.php - (tag)contains a page with personal photos
 ```
 include init.php
+create personal page id
 create a connection to the sql Database
 $db = open_or_init_sqlite_db('photogallery.sqlite', "init/init.sql");
-make a function to execute the sql query, return null if query not returned
+make a function to execute the sql query,
+try: set query to prepare sql
+if there is sql and query executes params
+return the Query
+otherwise, catch the Pdo exception and handle the error
+return null if query not returned
+
 function for getting the text(photo title) and photo_img
 echo the text by filtering (escape output)
+
+make a function to get only photos_id from the tagged photo
+$sql= "SELECT photo_img FROM tags WHERE photos_id = 2;
+$params = array();
 ```
 
 #### animals.php -(tag)contains a page with animal photos
 ```
 include init.php
+create animals page id
 create a connection to the sql Database
 $db = open_or_init_sqlite_db('photogallery.sqlite', "init/init.sql");
-make a function to execute the sql query, return null if query not returned
+make a function to execute the sql query,
+try: set query to prepare sql
+if there is sql and query executes params
+return the Query
+otherwise, catch the Pdo exception and handle the error
+return null if query not returned
+
 function for getting the text(photo title) and photo_img
 echo the text by filtering (escape output)
+
+make a function to get only photos_id from the tagged photo
+$sql= "SELECT photo_img FROM tags WHERE photos_id = 3;
+$params = array();
 ```
 
 #### food.php -(tag)contains a page with food photos
 ```
 include init.php
+create food page id
 create a connection to the sql Database
 $db = open_or_init_sqlite_db('photogallery.sqlite', "init/init.sql");
-make a function to execute the sql query, return null if query not returned
+make a function to execute the sql query,
+try: set query to prepare sql
+if there is sql and query executes params
+return the Query
+otherwise, catch the Pdo exception and handle the error
+return null if query not returned
+
 function for getting the text(photo title) and photo_img
 echo the text by filtering (escape output)
+
+make a function to get only photos_id from the tagged photo
+$sql= "SELECT photo_img FROM tags WHERE photos_id = 4;
+$params = array();
 ```
 
 #### cities.php -(tag)contains a page with city photos
 ```
 include init.php
+Create cities page id
 create a connection to the sql Database
 $db = open_or_init_sqlite_db('photogallery.sqlite', "init/init.sql");
-make a function to execute the sql query, return null if query not returned
+make a function to execute the sql query,
+try: set query to prepare sql
+if there is sql and query executes params
+return the Query
+otherwise, catch the Pdo exception and handle the error
+return null if query not returned
+
 function for getting the text(photo title) and photo_img
 echo the text by filtering (escape output)
+
+make a function to get only photos_id from the tagged photo
+$sql= "SELECT photo_img FROM tags WHERE photos_id = 5;
+$params = array();
 ```
 
 #### login.php - login form page
@@ -219,6 +286,13 @@ include init.php
 set page id= add photos
 create a connection to the sql database created
 $db = open_or_init_sqlite_db('photogallery.sqlite', "init/init.sql");
+
+make a function to execute the sql query,
+try: set query to prepare sql
+if there is sql and query executes params
+return the Query
+otherwise, catch the Pdo exception and handle the error
+return null if query not returned
 
 html multipart form with inputs:
 filter input for the photo name to make sure it is text using

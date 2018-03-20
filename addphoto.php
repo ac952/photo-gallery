@@ -1,4 +1,6 @@
-<?php include('includes/init.php'); ?>
+<?php include('includes/init.php');
+$current_page_id = "addphoto";
+?>
 <!DOCTYPE html>
 <html>
 

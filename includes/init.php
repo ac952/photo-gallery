@@ -1,5 +1,18 @@
 <?php
 
+$pages = array(
+  "index" => "Home",
+  "login"=> "Log in",
+  "logout"=> "Log out",
+  "landscape"=> "Landscape",
+  "cities"=> "Cities",
+  "animals"=> "Animals",
+  "food"=> "Food",
+  "gallery"=> "Gallery",
+  "personal"=> "Personal",
+  "addphoto"=> "Add Photo"
+);
+
 // show database errors during development.
 function handle_db_error($exception) {
   echo '<p><strong>' . htmlspecialchars('Exception : ' . $exception->getMessage()) . '</strong></p>';
