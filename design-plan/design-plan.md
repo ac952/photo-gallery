@@ -15,7 +15,7 @@ I've selected my persona because her motivations and attitudes toward technology
 ### Sketches
 
 [Insert your sketches here.]
-![](Scan.jpg)
+![](Scan.jpeg)
 
 ### Wirefames
 
