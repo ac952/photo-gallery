@@ -14,5 +14,6 @@ $current_page_id = "cities";
 <body>
 <!-- contain city photos -->
 <?php include("includes/header.php");?>
+<?php include("includes/tags.php");?>
 </body>
 </html>

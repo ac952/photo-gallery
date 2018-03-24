@@ -1,0 +1,63 @@
+html {
+  font-family: sans-serif;
+}
+
+h1, a {
+  color: black;
+  text-decoration: none;
+}
+
+header {
+  padding: 10px;
+  padding-bottom: 50px;
+}
+
+nav {
+  display:inline;
+}
+
+
+/* nav ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+} */
+
+nav li {
+  margin: 0;
+  padding: 20px;
+  font-weight: bold;
+  display: block;
+}
+
+/* https://stackoverflow.com/questions/26322715/two-nav-elements-in-css */
+nav li [role = "main"]{
+  margin: 0;
+  padding: 20px;
+  display: inline;
+  font-weight: bold;
+}
+
+nav[role = "main"] ul li {
+  background-color: #aaa;
+  margin: 0;
+  padding: 20px;
+  display: inline;
+  font-weight: bold;
+}
+
+nav[role = "sub"] ul li {
+  background-color: #eee;
+  width: 20%;
+  padding: 30px;
+  text-align: center;
+  /* margin: 0;
+  padding: 0;
+  list-style: none;
+  width:200px; */
+}
+
+nav #current_page {
+  padding: 10px;
+  border: 3px solid gray;
+}

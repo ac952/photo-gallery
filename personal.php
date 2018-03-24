@@ -15,5 +15,6 @@ $current_page_id = "personal";
 <body>
 <!-- contain personal/family photos -->
 <?php include("includes/header.php");?>
+<?php include("includes/tags.php");?>
 </body>
 </html>

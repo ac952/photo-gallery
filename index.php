@@ -12,6 +12,7 @@ $current_page_id = "index";
 </head>
 
 <body>
-<?php include("includes/header.php");?>
+  <?php include("includes/header.php");?>
+  <?php include("includes/tags.php");?>
 </body>
 </html>

@@ -14,5 +14,6 @@ $current_page_id = "landscape";
 <body>
 <!-- contain landscape photos -->
 <?php include("includes/header.php");?>
+<?php include("includes/tags.php");?>
 </body>
 </html>

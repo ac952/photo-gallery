@@ -1,5 +1,13 @@
 <?php include('includes/init.php');
-$current_page_id = "logout"; ?>
+$current_page_id = "logout";
+
+log_out();
+if (!$current_user) {
+  record_message("You've been successfully logged out.");
+}
+
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -12,5 +20,15 @@ $current_page_id = "logout"; ?>
 
 <body>
   <?php include("includes/header.php");?>
+  <?php include("includes/tags.php");?>
+
+  <div id="content-wrap">
+    <h1>Log Out</h1>
+
+    <?php
+    print_messages();
+    ?>
+    
+  </div>
 </body>
 </html>
