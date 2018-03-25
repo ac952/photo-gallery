@@ -6,21 +6,24 @@ $current_page_id = "box";
 
 const MAX_FILE_SIZE = 1000000;
 // const BOX_UPLOADS_PATH = "uploads/documents/";
-const BOX_UPLOADS_PATH = "images/";
+// const BOX_UPLOADS_PATH = "images/";
+const BOX_UPLOADS_PATH = "uploads/documents/";
+// const BOX_UPLOADS_PATH = "gallery/";
 
 if (isset($_POST["submit_upload"])) {
   $upload_info = $_FILES["box_file"];
-  $upload_desc = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_STRING);
+  // $upload_desc = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_STRING);
 
   if ($upload_info['error'] == UPLOAD_ERR_OK) {
     $upload_name = basename($upload_info["name"]);
     $upload_ext = strtolower(pathinfo($upload_name, PATHINFO_EXTENSION) );
 
-    $sql = "INSERT INTO documents (file_name, file_ext, description) VALUES (:filename, :extension, :description)";
+    // $sql = "INSERT INTO documents (file_name, file_ext, description) VALUES (:filename, :extension, :description)";
+    $sql = "INSERT INTO documents (file_name, file_ext) VALUES (:filename, :extension)";
     $params = array(
       ':extension' => $upload_ext,
       ':filename' => $upload_name,
-      ':description' => $upload_desc,
+      // ':description' => $upload_desc,
     );
     $result = exec_sql_query($db, $sql, $params);
 
@@ -75,9 +78,13 @@ if (isset($_POST["submit_upload"])) {
     <h2>Saved Files</h2>
     <ul>
       <?php
+    // $records = exec_sql_query($db, "SELECT * FROM documents")->fetchAll(PDO::FETCH_ASSOC);
     $records = exec_sql_query($db, "SELECT * FROM documents")->fetchAll(PDO::FETCH_ASSOC);
     foreach($records as $record){
-      echo "<li><a href=\"" . BOX_UPLOADS_PATH . $record["id"] . "." . $record["file_ext"] . "\">".$record["file_name"]."</a> - " . $record["description"] . "</li>";
+
+      // echo "<li><a href=\"" . BOX_UPLOADS_PATH . $record["id"] . "." . $record["file_ext"] . "\">".$record["file_name"]."</a> - " . $record["description"] . "</li>";
+      // echo "<li><a href=\"" . BOX_UPLOADS_PATH . $record["id"] . "." . $record["file_ext"] . "\">".$record["file_name"]."</a></li>";
+      echo "<li><a href=\"" . BOX_UPLOADS_PATH . $record["id"] . "." . $record["file_ext"] . "\">".$record["file_name"]."</a></li>";
     }
     ?>
     </ul>
