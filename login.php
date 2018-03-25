@@ -1,5 +1,7 @@
 <?php include('includes/init.php');
 $current_page_id = "login";
+
+// $db = open_or_init_sqlite_db("website.sqlite", "init/init.sql");
 ?>
 <!DOCTYPE html>
 <html>
@@ -22,19 +24,17 @@ $current_page_id = "login";
   print_messages();
   ?>
 
-  <form id="reviewShoe" action="login.php" method="post">
+  <form action="login.php" method="post">
     <ul>
-      <li>
+
         <label>Username:</label>
-        <input type="text" name="username" required/>
-      </li>
-      <li>
+        <input type="text" name="username" required/><br>
+
         <label>Password:</label>
-        <input type="password" name="password" required/>
-      </li>
-      <li>
+        <input type="password" name="password" required/></br>
+
         <button name="login" type="submit">Log In</button>
-      </li>
+
     </ul>
   </form>
 </div>

@@ -48,9 +48,10 @@ nav[role = "main"] ul li {
 
 nav[role = "sub"] ul li {
   background-color: #eee;
-  width: 20%;
-  padding: 30px;
+  width: 15%;
+  padding: 20px;
   text-align: center;
+  border: 2px solid gray;
   /* margin: 0;
   padding: 0;
   list-style: none;
@@ -60,4 +61,69 @@ nav[role = "sub"] ul li {
 nav #current_page {
   padding: 10px;
   border: 3px solid gray;
+}
+
+
+/* Style the buttons */
+
+.show {
+  display: block;
+}
+
+.btn {
+  border: none;
+  outline: none;
+  padding: 12px 16px;
+  background-color: white;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #ddd;
+}
+
+.btn.active {
+  background-color: #666;
+  color: white;
+}
+
+
+#content-wrap{
+  position:absolute;
+  top: 20%;
+  left: 40%;
+}
+
+#content-wrap2{
+  position:absolute;
+  top: 22%;
+  left: 25%;
+}
+
+.image{
+  width: 280px;
+  height: 210px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+}
+
+#content-wrap3{
+  position:absolute;
+  top: 20%;
+  left: 25%;
+}
+
+#camera_img{
+  width: 93%;
+  opacity: 0.8;
+}
+
+#home_heading{
+  position: absolute;
+  top: 3%;
+  left: 23%;
+  background-color: black;
+  color: white;
+  padding: 30px;
+  opacity: 0.65;
 }

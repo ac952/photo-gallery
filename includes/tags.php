@@ -9,16 +9,17 @@
         } else {
           $id = "";
         }
-        echo "<li><a ". $id. " href='". $i. ".php'>$value</a></li>";
+        echo "<li><a class='btn' ". $id. " href='". $i. ".php'>$value</a></li>";
 
       }
       ?>
       <!-- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_portfolio_gallery_filter -->
       <div id="myBtnContainer">
-      <li><button class="btn active" onclick="filterSelection('all')"> Show all</button></li>
-      <li><button class="btn" onclick="filterSelection('nature')"> Nature</button></li>
-      <li><button class="btn" onclick="filterSelection('cars')"> Cars</button></li>
-      <li><button class="btn" onclick="filterSelection('people')"> People</button></li>
+      <li><button class="btn" onclick="filterSelection('landscape')"> Landscape</button></li>
+      <li><button class="btn" onclick="filterSelection('cities')">Cities</button></li>
+      <li><button class="btn" onclick="filterSelection('food')"> Food</button></li>
+      <li><button class="btn" onclick="filterSelection('animals')"> Animals</button></li>
+      <li><button class="btn" onclick="filterSelection('personal')"> Personal</button></li>
       </div>
     </ul>
   </nav>

@@ -4,16 +4,11 @@ $homepages = array(
   "index" => "Home",
   "login"=> "Log in",
   "logout"=> "Log out",
-  "addphoto"=> "Add Photo"
+  "box"=> "Add Photo"
 );
 
 $pages = array(
   "gallery"=> "Gallery"
-  // "landscape"=> "Landscape",
-  // "cities"=> "Cities",
-  // "animals"=> "Animals",
-  // "food"=> "Food",
-  // "personal"=> "Personal",
 );
 
 // An array to deliver messages to the user.
@@ -29,7 +24,7 @@ function record_message($message) {
 function print_messages() {
   global $messages;
   foreach ($messages as $message) {
-    echo "<p><strong>" . htmlspecialchars($message) . "</strong></p>\n";
+    echo "<p id='messages'><strong>" . htmlspecialchars($message) . "</strong></p>\n";
   }
 }
 
@@ -72,6 +67,9 @@ function open_or_init_sqlite_db($db_filename, $init_sql_filename) {
 
 // open connection to database
 $db = open_or_init_sqlite_db("website.sqlite", "init/init.sql");
+// $db = open_or_init_sqlite_db('box.sqlite', "init/init.sql");
+
+// $db = open_or_init_sqlite_db('gallery.sqlite', "init/init.sql");
 
 function check_login() {
   global $db;
