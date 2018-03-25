@@ -75,15 +75,12 @@ if (isset($_POST["submit_upload"])) {
       </ul>
     </form>
 
-    <h2>Saved Files</h2>
+    <h2>Saved Photos</h2>
     <ul>
       <?php
     // $records = exec_sql_query($db, "SELECT * FROM documents")->fetchAll(PDO::FETCH_ASSOC);
     $records = exec_sql_query($db, "SELECT * FROM documents")->fetchAll(PDO::FETCH_ASSOC);
     foreach($records as $record){
-
-      // echo "<li><a href=\"" . BOX_UPLOADS_PATH . $record["id"] . "." . $record["file_ext"] . "\">".$record["file_name"]."</a> - " . $record["description"] . "</li>";
-      // echo "<li><a href=\"" . BOX_UPLOADS_PATH . $record["id"] . "." . $record["file_ext"] . "\">".$record["file_name"]."</a></li>";
       echo "<li><a href=\"" . BOX_UPLOADS_PATH . $record["id"] . "." . $record["file_ext"] . "\">".$record["file_name"]."</a></li>";
     }
     ?>

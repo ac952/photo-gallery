@@ -67,9 +67,6 @@ function open_or_init_sqlite_db($db_filename, $init_sql_filename) {
 
 // open connection to database
 $db = open_or_init_sqlite_db("website.sqlite", "init/init.sql");
-// $db = open_or_init_sqlite_db('box.sqlite', "init/init.sql");
-
-// $db = open_or_init_sqlite_db('gallery.sqlite', "init/init.sql");
 
 function check_login() {
   global $db;

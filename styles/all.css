@@ -39,7 +39,7 @@ nav li [role = "main"]{
 }
 
 nav[role = "main"] ul li {
-  background-color: #aaa;
+  background-color: #eee;
   margin: 0;
   padding: 20px;
   display: inline;
@@ -47,15 +47,11 @@ nav[role = "main"] ul li {
 }
 
 nav[role = "sub"] ul li {
-  background-color: #eee;
+  /* background-color: #eee; */
   width: 15%;
   padding: 20px;
   text-align: center;
-  border: 2px solid gray;
-  /* margin: 0;
-  padding: 0;
-  list-style: none;
-  width:200px; */
+  border: 1px solid gray;
 }
 
 nav #current_page {
@@ -128,13 +124,8 @@ nav #current_page {
   opacity: 0.65;
 }
 
-
-
-
-
-
-
-
+/* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal_img */
+/* modal gallery */
 /* Style the Image Used to Trigger the Modal */
 .myImg {
    border-radius: 5px;
