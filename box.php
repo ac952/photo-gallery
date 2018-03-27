@@ -56,15 +56,14 @@ if (isset($_POST["submit_upload"])) {
 <?php include("includes/tags.php");?>
 <div id="content-wrap">
 
-    <?php
-    print_messages();
-    ?>
+
 
     <h1>Upload a Photo to Your Gallery</h2>
 
+    <!-- <form action="box.php" method="post" enctype="multipart/form-data"> -->
     <form action="box.php" method="post" enctype="multipart/form-data">
       <ul>
-
+          <p>**You must save the photo as a .png file</p>
           <label>Photo Name:</label>
           <input type="text" name="text" required><br>
           <label>Upload Photo:</label>
@@ -72,17 +71,22 @@ if (isset($_POST["submit_upload"])) {
           <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo MAX_FILE_SIZE; ?>" />
           <input type="file" name="box_file" required>
           <button name="submit_upload" type="submit">Upload</button>
+
       </ul>
     </form>
 
     <h2>Saved Photos</h2>
     <ul>
-      <?php
+    <?php
     // $records = exec_sql_query($db, "SELECT * FROM documents")->fetchAll(PDO::FETCH_ASSOC);
     $records = exec_sql_query($db, "SELECT * FROM documents")->fetchAll(PDO::FETCH_ASSOC);
     foreach($records as $record){
       echo "<li><a href=\"" . BOX_UPLOADS_PATH . $record["id"] . "." . $record["file_ext"] . "\">".$record["file_name"]."</a></li>";
     }
+    ?>
+
+    <?php
+    print_messages();
     ?>
     </ul>
   </div>

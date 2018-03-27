@@ -2,6 +2,8 @@
 
 $current_page_id = "gallery";
 
+const BOX_UPLOADS_PATH = "uploads/documents/";
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -33,6 +35,18 @@ $current_page_id = "gallery";
   echo "<img class= 'myImg' src =". $record["image"] . ">";
   }
 ?>
+
+
+<?php
+// $records = exec_sql_query($db, "SELECT * FROM documents")->fetchAll(PDO::FETCH_ASSOC);
+$records = exec_sql_query($db, "SELECT * FROM documents")->fetchAll(PDO::FETCH_ASSOC);
+foreach($records as $record){
+  echo "<img class = 'myImg' src=\"" . BOX_UPLOADS_PATH . $record["id"] . "." . $record["file_ext"] . "\">";
+  // echo "<img class= 'myImg' src =". $record["file_ext"] . ">";
+  // echo "<li><a href=\"" . BOX_UPLOADS_PATH . $record["id"] . "." . $record["file_ext"] . "\">".$record["file_name"]."</a></li>";
+}
+?>
+
 </div>
 
 <!-- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal_img -->
