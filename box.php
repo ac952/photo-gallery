@@ -60,12 +60,18 @@ if (isset($_POST["submit_upload"])) {
 
     <h1>Upload a Photo to Your Gallery</h2>
 
+      <?php
+      if ($current_user == NULL){
+        echo "you must login to upload";
+      }
+       ?>
+
     <!-- <form action="box.php" method="post" enctype="multipart/form-data"> -->
     <form action="box.php" method="post" enctype="multipart/form-data">
       <ul>
           <p>**You must save the photo as a .png file</p>
           <label>Photo Name:</label>
-          <input type="text" name="text" required><br>
+          <input type="text" name="file_name" required><br>
           <label>Upload Photo:</label>
           <!-- MAX_FILE_SIZE must precede the file input field -->
           <input type="hidden" name="MAX_FILE_SIZE" value="<?php echo MAX_FILE_SIZE; ?>" />
@@ -89,6 +95,8 @@ if (isset($_POST["submit_upload"])) {
     print_messages();
     ?>
     </ul>
+
+
   </div>
 
 </body>

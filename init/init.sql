@@ -7,20 +7,11 @@ CREATE TABLE `accounts` (
 	`password`	TEXT NOT NULL,
 	`session`	TEXT UNIQUE
 );
-
 /* TODO: initial seed data */
 INSERT INTO accounts (username, password) VALUES ('ac952', '$2y$10$Fe322Tluh2Sx9OKdmMKPh.qPRjYjB4YquCE3cOetiX7bgrV0B9KYS');
 -- Cornell1
 INSERT INTO accounts (username, password) VALUES ('jt465', '$2y$10$u4AvsiK1it16rHjNw0Z2d.23ePIPmx82wn/MxeuC07vaxvUuT8com');
 -- Cornell22
-
--- CREATE TABLE documents (
--- 	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,
--- 	file_name TEXT NOT NULL,
--- 	file_ext TEXT NOT NULL,
--- 	description TEXT
--- );
--- INSERT INTO documents (id, file_name, file_ext, description) VALUES (1, 'lab-07.pdf', 'pdf', 'Lab 7 write-up');
 
 CREATE TABLE documents (
 	id INTEGER NOT NULL PRIMARY KEY AUTOINCREMENT UNIQUE,

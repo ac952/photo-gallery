@@ -3,6 +3,10 @@
 $current_page_id = "gallery";
 
 const BOX_UPLOADS_PATH = "uploads/documents/";
+// if (!isset($_SESSION['login'])) {
+//   // echo "Please log in first to fill out this form";
+//   header("Location:login.php");
+// }
 
 ?>
 <!DOCTYPE html>
@@ -28,7 +32,7 @@ const BOX_UPLOADS_PATH = "uploads/documents/";
 </div>
 
 <div id="content-wrap2">
-<!-- <div> -->
+<!-- get recorded seed data pictures -->
 <?php
   $records = exec_sql_query($db, "SELECT * FROM pictures")->fetchAll(PDO::FETCH_ASSOC);
   foreach($records as $record){
@@ -36,14 +40,11 @@ const BOX_UPLOADS_PATH = "uploads/documents/";
   }
 ?>
 
-
+<!-- add uploaded images to gallery from the box.php page -->
 <?php
-// $records = exec_sql_query($db, "SELECT * FROM documents")->fetchAll(PDO::FETCH_ASSOC);
 $records = exec_sql_query($db, "SELECT * FROM documents")->fetchAll(PDO::FETCH_ASSOC);
 foreach($records as $record){
   echo "<img class = 'myImg' src=\"" . BOX_UPLOADS_PATH . $record["id"] . "." . $record["file_ext"] . "\">";
-  // echo "<img class= 'myImg' src =". $record["file_ext"] . ">";
-  // echo "<li><a href=\"" . BOX_UPLOADS_PATH . $record["id"] . "." . $record["file_ext"] . "\">".$record["file_name"]."</a></li>";
 }
 ?>
 

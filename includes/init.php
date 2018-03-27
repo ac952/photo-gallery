@@ -103,7 +103,6 @@ function log_in($username, $password) {
 
       // Check password against hash in DB
       if ( password_verify($password, $account['password']) ) {
-
         // Generate session
         // Warning! Not a secure method for generating session IDs!
         // TODO: secure session
@@ -121,8 +120,8 @@ function log_in($username, $password) {
           setcookie("session", $session, time()+3600);  /* expire in 1 hour */
 
           record_message("Logged in as $username.");
-
-          return TRUE;
+          return $username;
+          // return TRUE;
 
         } else {
           record_message("Log in failed.");
@@ -137,13 +136,12 @@ function log_in($username, $password) {
   } else {
     record_message("No username or password given.");
   }
-  return FALSE;
+  return NULL;
 }
 
 function log_out() {
   global $current_user;
   global $db;
-
   if ($current_user) {
     $sql = "UPDATE accounts SET session = :session WHERE username = :username;";
     $params = array(
@@ -160,17 +158,22 @@ function log_out() {
   $current_user = NULL;
 }
 
+
 // Check if we should login the user
 if (isset($_POST['login'])) {
   $username = filter_input(INPUT_POST, 'username', FILTER_SANITIZE_STRING);
   $username = trim($username);
   $password = filter_input(INPUT_POST, 'password', FILTER_SANITIZE_STRING);
 
-  log_in($username, $password);
+  $current_user = log_in($username, $password);
 }
-
 // check if logged in
-$current_user = check_login();
+else{
+  // header('location:init.php?msg=yyou must login to upload.');
+  // echo "You must log in to upload photos";
+  $current_user = check_login();
+}
 // if false, then allow session to expire
+
 
 ?>
