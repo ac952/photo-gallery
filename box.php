@@ -56,15 +56,13 @@ if (isset($_POST["submit_upload"])) {
 <?php include("includes/tags.php");?>
 <div id="content-wrap">
 
-
+  <?php
+  if ($current_user == NULL){
+    echo "You must be logged in to upload";
+  }
+   ?>
 
     <h1>Upload a Photo to Your Gallery</h2>
-
-      <?php
-      if ($current_user == NULL){
-        echo "you must login to upload";
-      }
-       ?>
 
     <!-- <form action="box.php" method="post" enctype="multipart/form-data"> -->
     <form action="box.php" method="post" enctype="multipart/form-data">

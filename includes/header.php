@@ -3,22 +3,30 @@
   <nav role="main">
     <ul>
       <?php
-      foreach($homepages as $i => $value) {
-        if ($current_page_id == $i) {
-          $id =  "id='current_page'";
-        } else {
-          $id = "";
+      if ($current_user){
+        echo "<p id='login'> Logged in as ". $current_user."</p>";
+        foreach($everything as $i => $value) {
+          if ($current_page_id == $i) {
+            $id =  "id='current_page'";
+          } else {
+            $id = "";
+          }
+          echo "<li><a ". $id. " href='". $i. ".php'>$value</a></li>";
         }
-        echo "<li><a ". $id. " href='". $i. ".php'>$value</a></li>";
+
+      } else if (!$current_user) {
+        foreach($homepages as $i => $value) {
+          if ($current_page_id == $i) {
+            $id =  "id='current_page'";
+          } else {
+            $id = "";
+          }
+          echo "<li><a ". $id. " href='". $i. ".php'>$value</a></li>";
+        }
       }
+
       ?>
     </ul>
-    <p>
-    <?php
-    if ($current_user) {
-      echo "Logged in as $current_user";
-    }
-    ?>
-  </p>
+
   </nav>
 </header>

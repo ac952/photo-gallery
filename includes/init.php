@@ -1,14 +1,38 @@
 <?php
 
+// $homepages = array(
+//   "index" => "Home",
+//   "login"=> "Log in"
+//   // "logout"=> "Log out",
+//
+// );
+
+// only show these pages if user is logged in
+// $show = array(
+//
+//   "box"=> "Add Photo"
+// );
+//
+// $logout = array(
+//   "logout"=> "Log out"
+// );
+
 $homepages = array(
   "index" => "Home",
-  "login"=> "Log in",
-  "logout"=> "Log out",
-  "box"=> "Add Photo"
+  "login"=> "Log in"
 );
 
+$everything = array(
+  "index" => "Home",
+  "login"=> "Log in",
+  "box"=> "Add Photo",
+  "logout"=> "Log out"
+);
+
+
 $pages = array(
-  "gallery"=> "Gallery"
+  "gallery"=> "Gallery",
+  "search" =>"Search"
 );
 
 // An array to deliver messages to the user.
@@ -169,11 +193,9 @@ if (isset($_POST['login'])) {
 }
 // check if logged in
 else{
-  // header('location:init.php?msg=yyou must login to upload.');
   // echo "You must log in to upload photos";
   $current_user = check_login();
 }
 // if false, then allow session to expire
-
 
 ?>
