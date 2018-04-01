@@ -37,6 +37,12 @@ const BOX_UPLOADS_PATH = "uploads/documents/";
   $records = exec_sql_query($db, "SELECT * FROM pictures")->fetchAll(PDO::FETCH_ASSOC);
   foreach($records as $record){
   echo "<img class= 'myImg' src =". $record["image"] . ">";
+  ?>
+  <div class="btnbtn">
+    <button class='edit' name='submit_edit' type='submit'>Edit</button><br>
+    <button class='delete' name='submit_delete' type='submit'>Delete</button>
+  </div>
+  <?php
   }
 ?>
 
@@ -45,6 +51,12 @@ const BOX_UPLOADS_PATH = "uploads/documents/";
 $records = exec_sql_query($db, "SELECT * FROM documents")->fetchAll(PDO::FETCH_ASSOC);
 foreach($records as $record){
   echo "<img class = 'myImg' src=\"" . BOX_UPLOADS_PATH . $record["id"] . "." . $record["file_ext"] . "\">";
+  ?>
+  <div class="btnbtn">
+    <button class='edit' name='submit_edit' type='submit'>Edit</button><br>
+    <button class='delete' name='submit_delete' type='submit'>Delete</button>
+  </div>
+  <?php
 }
 ?>
 

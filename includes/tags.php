@@ -49,20 +49,16 @@
 
 <!-- checkboxes for each tag, form action or results occur on search.php-->
       <form action="search.php" method="get">
-      <!-- <select name="category"> -->
-        <!-- <option value="" selected disabled>Search By</option> -->
         <?php
         foreach(SEARCH_FIELDS as $field_name => $label){
           ?>
           <label class="container">
-          <input name="category" type="checkbox" value="<?php echo $field_name;?>"><?php echo $label;?><br>
-          <span class="checkmark"></span>
-        </label>
+            <input name="category" type="checkbox" value="<?php echo $field_name;?>"><?php echo $label;?><br>
+            <span class="checkmark"></span>
+          </label>
           <?php
         }
         ?>
-      <!-- </select> -->
-      <!-- <input type="text" name="search"/> -->
       <button type="submit">Search Tags</button>
       </form>
       <!-- if the tag field is not empty, do search -->

@@ -68,6 +68,28 @@ nav #current_page{
   color: green;
 }
 
+button{
+  margin-top: 20px;
+  padding: 10px;
+  font-size: 20px;
+}
+
+
+.btnbtn{
+    display: inline-block;
+    /* margin: -10px; */
+}
+
+.edit,.delete{
+  font-size: 10px;
+  border-radius: 5px;
+  margin: 3px;
+  width: 55px;
+  text-align: center;
+
+}
+
+
 /* https://stackoverflow.com/questions/12294367/html-
 radio-buttons-add-space-between-the-buttons-from-the-same-groupe */
 input[type="checkbox"]{
@@ -194,8 +216,9 @@ filename=tryhow_css_custom_checkbox */
 .myImg{
   width: 280px;
   height: 210px;
-  margin-left: 20px;
-  margin-bottom: 20px;
+  margin-left: 50px;
+  margin-bottom: -10px;
+  /* float: left; */
 }
 
 #content-wrap3{
@@ -218,6 +241,16 @@ filename=tryhow_css_custom_checkbox */
   padding: 30px;
   opacity: 0.65;
 }
+
+
+
+
+
+
+
+
+
+
 
 /* https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal_img */
 /* modal gallery */

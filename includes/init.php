@@ -32,7 +32,7 @@ $everything = array(
 
 $pages = array(
   "gallery"=> "Gallery",
-  "search" =>"Search"
+  "search" =>"Select Tags:"
 );
 
 // An array to deliver messages to the user.
