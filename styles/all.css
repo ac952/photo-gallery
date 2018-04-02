@@ -17,12 +17,6 @@ nav {
 }
 
 
-/* nav ul {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-} */
-
 nav li {
   margin: 0;
   padding: 20px;
@@ -216,7 +210,7 @@ filename=tryhow_css_custom_checkbox */
 .myImg{
   width: 280px;
   height: 210px;
-  margin-left: 50px;
+  margin-left: 20px;
   margin-bottom: -10px;
   /* float: left; */
 }
@@ -243,10 +237,23 @@ filename=tryhow_css_custom_checkbox */
 }
 
 
+#random{
+     max-width: 650px
+}
 
+#random img{
+    width:80px;
+}
 
+.img-container{
+    display: inline-block;
 
+}
 
+.image_name_text{
+  /* margin-left: 160px; */
+  text-align: center;
+}
 
 
 
@@ -259,6 +266,7 @@ filename=tryhow_css_custom_checkbox */
    border-radius: 5px;
    cursor: pointer;
    transition: 0.3s;
+
 }
 
 .myImg:hover {opacity: 0.7;}

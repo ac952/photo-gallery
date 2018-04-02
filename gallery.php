@@ -4,27 +4,6 @@ $current_page_id = "gallery";
 
 const BOX_UPLOADS_PATH = "uploads/documents/";
 
-// var_dump("delete");
-// if (isset($_GET["submit_delete"])) {
-//   var_dump("del");
-//
-//   // unlink($record["image"]);
-//   $sql = "SELECT image FROM pictures WHERE image_name =  :search ";
-//   $params = array(':search' => $search);
-//   $records = exec_sql_query($db, $sql, $params)->fetchAll(PDO::FETCH_ASSOC);
-//   if (isset($records) and !empty($records)) {
-//       foreach($records as $record) {
-//
-//         // $sql = "DELETE FROM pictures WHERE image = " . $record['image']. "";
-//         // unlink($record["image"]);
-//         $record["image"];
-//         var_dump($record["image"]);
-//         // var_dump($record["image"]);
-//       }
-//   }
-//
-// }
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -47,56 +26,52 @@ const BOX_UPLOADS_PATH = "uploads/documents/";
   if($do_search) {
     ?>
     <?php
-        $sql = "SELECT pictures.image FROM pictures LEFT OUTER JOIN image_tags ON
+    // if user clicks on a tag checkbox
+        // $sql = "SELECT pictures.image FROM pictures LEFT OUTER JOIN image_tags ON
+        // pictures.id = image_tags.pictures_id WHERE image_tags.tags_id = :category";
+
+        $sql = "SELECT pictures.image, pictures.image_name FROM pictures LEFT OUTER JOIN image_tags ON
         pictures.id = image_tags.pictures_id WHERE image_tags.tags_id = :category";
         // var_dump($sql);
         $params = array(':category' => $category);
-
+        // var_dump("d");
 
       } else{
         $sql = "SELECT * FROM pictures";
         $params = array();
+
         ?>
         <?php
         $sql = "SELECT * FROM pictures";
         $params = array();
       }
+
       $records = exec_sql_query($db, $sql, $params)->fetchAll(PDO::FETCH_ASSOC);
+      // var_dump("print");
       if (isset($records) and !empty($records)) {
         ?>
     <div id="content-wrap2">
       <?php
       foreach($records as $record) {
-        echo "<img class='myImg' src =". $record["image"] . ">";
-        ?>
-        <!-- <div class="btnbtn">
-          <button class='edit' name='submit_edit' type='submit'>Edit</button><br>
-          <form action="gallery.php" method="post" enctype="multipart/form-data">
-            <button class='delete' name='submit_delete' type='submit'>Delete</button>
-          </form>
-        </div> -->
+        echo "<div class='img-container'><img class='myImg' src =". $record["image"] . "/>";
+        echo "<p class='image_name_text'>".$record['image_name']."</p></div>";
+      ?>
         <?php
       }
 }
 ?>
-
-
-
-
 <!-- add uploaded images to gallery from the box.php page -->
 <?php
 $records = exec_sql_query($db, "SELECT * FROM documents")->fetchAll(PDO::FETCH_ASSOC);
+// var_dump("doc");
 foreach($records as $record){
-  echo "<img class = 'myImg' src=\"" . BOX_UPLOADS_PATH . $record["id"] . "." . $record["file_ext"] . "\">";
+  echo "<div class='img-container'>
+  <img class = 'myImg' src=\"" . BOX_UPLOADS_PATH . $record["id"] . "." . $record["file_ext"] . "\">";
+  echo "<p class='image_name_text'>".$record['file_name']."</p></div>";
   ?>
-  <!-- <div class="btnbtn">
-    <button class='edit' name='submit_edit' type='submit'>Edit</button><br>
-    <form action="gallery.php" method="post" enctype="multipart/form-data">
-    <button class='delete' name='submit_delete' type='submit'>Delete</button>
-      </form>
-  </div> -->
   <?php
 }
+
 ?>
 
 </div>

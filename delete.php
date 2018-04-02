@@ -28,18 +28,6 @@ if (isset($_GET['search']) and isset($_GET['category'])) {
   $search = NULL;
 }
 
-// $messages = array();
-
-// var_dump("no");
-if (isset($_GET["submit_delete"])) {
-
-  }
-
-  //
-  // $sql = "DELETE FROM ";
-  // unlink($record["image"]);
-  // var_dump("delete");
-
 
 ?>
 <!DOCTYPE html>
@@ -84,21 +72,21 @@ if (isset($_GET["submit_delete"])) {
     $params = array(':search' => $search);
     var_dump("print");
   } else{
-
     $sql = "SELECT image FROM pictures WHERE image_name =  :search ";
     $params = array(':search' => $search);
-
   }
   $records = exec_sql_query($db, $sql, $params)->fetchAll(PDO::FETCH_ASSOC);
   if (isset($records) and !empty($records)) {
       foreach($records as $record) {
-        // $sql = "DELETE FROM pictures WHERE image = " . $record['image']. "";
-        // unlink($record["image"]);
-        $record["image"];
-        var_dump($record["image"]);
+        $sql = "DELETE FROM pictures WHERE image = " . $record['image']. "";
+        unlink($record["image"]);
+        // $record["image"];
+        // var_dump($record["image"]);
+        echo "Image was deleted";
         // var_dump($record["image"]);
       }
-  }
+      // } echo " Image was not delete. pls check spelling.";
+    }
 
   ?>
 
