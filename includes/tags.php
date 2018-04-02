@@ -40,28 +40,36 @@
             $id = "";
           }
           echo "<li><a class='btn' ". $id. " href='". $i. ".php'>$value</a></li>";
+
         }
-      }else {
-        echo "<li><a class='btn' href=''>Gallery</a></li>";
+        ?>
+        <!-- checkboxes for each tag, form action or results occur on search.php-->
+        <!-- if the tag field is not empty, do search -->
+        <form action="gallery.php" method="get">
+          <?php
+          foreach(SEARCH_FIELDS as $field_name => $label){
+            ?>
+            <label class="container">
+              <input name="category" type="checkbox" value="<?php echo $field_name;?>"><?php echo $label;?><br>
+              <span class="checkmark"></span>
+            </label>
+            <?php
+          }
+          ?>
+        <button type="submit">Search Tags</button>
+        </form>
+
+
+
+
+
+    
+
+        <?php
       }
       ?>
 
 
-<!-- checkboxes for each tag, form action or results occur on search.php-->
-      <form action="search.php" method="get">
-        <?php
-        foreach(SEARCH_FIELDS as $field_name => $label){
-          ?>
-          <label class="container">
-            <input name="category" type="checkbox" value="<?php echo $field_name;?>"><?php echo $label;?><br>
-            <span class="checkmark"></span>
-          </label>
-          <?php
-        }
-        ?>
-      <button type="submit">Search Tags</button>
-      </form>
-      <!-- if the tag field is not empty, do search -->
     </ul>
   </nav>
 </header>

@@ -26,13 +26,14 @@ $everything = array(
   "index" => "Home",
   "login"=> "Log in",
   "box"=> "Add Photo",
+  "delete" => "Delete Photo",
   "logout"=> "Log out"
 );
 
 
 $pages = array(
   "gallery"=> "Gallery",
-  "search" =>"Select Tags:"
+  // "search" =>"Select Tags:"
 );
 
 // An array to deliver messages to the user.
