@@ -28,12 +28,17 @@ if (isset($_GET['search']) and isset($_GET['category'])) {
   $search = NULL;
 }
 
+// $messages = array();
 
+// var_dump("no");
 if (isset($_GET["submit_delete"])) {
-  unlink($record["image"]);
-  var_dump("delete");
-}
 
+  }
+
+  //
+  // $sql = "DELETE FROM ";
+  // unlink($record["image"]);
+  // var_dump("delete");
 
 
 ?>
@@ -56,7 +61,7 @@ if (isset($_GET["submit_delete"])) {
 
   <h1>Select Photo to Delete</h1>
   <!-- <form action="box.php" method="post" enctype="multipart/form-data"> -->
-  <form action="gallery.php" method="get">
+  <form action="delete.php" method="get">
     <select name="category">
         <option value="" selected disabled>Search By</option>
         <?php
@@ -74,15 +79,12 @@ if (isset($_GET["submit_delete"])) {
 
   <?php
   if($do_search) {
-
     // $sql = "SELECT * FROM pictures WHERE ".$search_field." LIKE '%' || :search || '%'";
     $sql = "SELECT image FROM pictures WHERE image_name =  :search ";
     $params = array(':search' => $search);
     var_dump("print");
   } else{
-    // $sql = "SELECT * FROM pictures";
-    // $sql = "SELECT image_name FROM pictures WHERE image_name = land1 " ;
-    // $params = array();
+
     $sql = "SELECT image FROM pictures WHERE image_name =  :search ";
     $params = array(':search' => $search);
 
@@ -90,7 +92,6 @@ if (isset($_GET["submit_delete"])) {
   $records = exec_sql_query($db, $sql, $params)->fetchAll(PDO::FETCH_ASSOC);
   if (isset($records) and !empty($records)) {
       foreach($records as $record) {
-
         // $sql = "DELETE FROM pictures WHERE image = " . $record['image']. "";
         // unlink($record["image"]);
         $record["image"];
@@ -98,9 +99,7 @@ if (isset($_GET["submit_delete"])) {
         // var_dump($record["image"]);
       }
   }
-  // else {
-  //   echo "<p class = 'messages'>No reviews for that search.</p>";
-  // }
+
   ?>
 
 </body>

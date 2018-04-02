@@ -5,25 +5,25 @@ $current_page_id = "gallery";
 const BOX_UPLOADS_PATH = "uploads/documents/";
 
 // var_dump("delete");
-if (isset($_GET["submit_delete"])) {
-  var_dump("del");
-
-  // unlink($record["image"]);
-  $sql = "SELECT image FROM pictures WHERE image_name =  :search ";
-  $params = array(':search' => $search);
-  $records = exec_sql_query($db, $sql, $params)->fetchAll(PDO::FETCH_ASSOC);
-  if (isset($records) and !empty($records)) {
-      foreach($records as $record) {
-
-        // $sql = "DELETE FROM pictures WHERE image = " . $record['image']. "";
-        // unlink($record["image"]);
-        $record["image"];
-        var_dump($record["image"]);
-        // var_dump($record["image"]);
-      }
-  }
-
-}
+// if (isset($_GET["submit_delete"])) {
+//   var_dump("del");
+//
+//   // unlink($record["image"]);
+//   $sql = "SELECT image FROM pictures WHERE image_name =  :search ";
+//   $params = array(':search' => $search);
+//   $records = exec_sql_query($db, $sql, $params)->fetchAll(PDO::FETCH_ASSOC);
+//   if (isset($records) and !empty($records)) {
+//       foreach($records as $record) {
+//
+//         // $sql = "DELETE FROM pictures WHERE image = " . $record['image']. "";
+//         // unlink($record["image"]);
+//         $record["image"];
+//         var_dump($record["image"]);
+//         // var_dump($record["image"]);
+//       }
+//   }
+//
+// }
 
 ?>
 <!DOCTYPE html>
