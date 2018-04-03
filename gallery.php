@@ -41,21 +41,23 @@ const BOX_UPLOADS_PATH = "uploads/documents/";
       } else{
         $sql = "SELECT * FROM pictures";
         $params = array();
-
+        // var_dump($params);
         ?>
         <?php
         $sql = "SELECT * FROM pictures";
         $params = array();
+        // var_dump("f");
       }
 
       $records = exec_sql_query($db, $sql, $params)->fetchAll(PDO::FETCH_ASSOC);
-      // var_dump("print");
+      // var_dump($records);
       if (isset($records) and !empty($records)) {
         ?>
     <div id="content-wrap2">
       <?php
       foreach($records as $record) {
-        echo "<div class='img-container'><img class='myImg' src =\"".IMAGE_UPLOADS_PATH. $record["image"] . "/>";
+        echo "<div class='img-container'><img class='myImg' src =" .IMAGE_UPLOADS_PATH. $record["image"] . "/>";
+        // var_dump($record["image"]);
         echo "<p class='image_name_text'>".$record['image_name']."</p></div>";
       ?>
         <?php
