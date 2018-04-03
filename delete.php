@@ -46,9 +46,10 @@ if (isset($_GET['search']) and isset($_GET['category'])) {
 <!-- contain all photos -->
 <?php include("includes/header.php");?>
 <?php include("includes/tags.php");?>
-
-  <h1>Select Photo to Delete</h1>
+<div id="content-wrap">
+  <h1>Select A Photo to Delete</h1>
   <!-- <form action="box.php" method="post" enctype="multipart/form-data"> -->
+  <p>**Image name is case sensitive.</p>
   <form action="delete.php" method="get">
     <select name="category">
         <option value="" selected disabled>Search By</option>
@@ -60,7 +61,7 @@ if (isset($_GET['search']) and isset($_GET['category'])) {
         }
         ?>
       </select>
-      <input type="text" name="search"/>
+      <input type="text" name="search"/><br>
       <button name="submit_delete" type="submit">Delete</button>
   </form>
 
@@ -89,6 +90,6 @@ if (isset($_GET['search']) and isset($_GET['category'])) {
     }
 
   ?>
-
+</div>
 </body>
 </html>

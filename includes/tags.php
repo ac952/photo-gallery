@@ -3,7 +3,7 @@
   <nav role="sub">
     <ul>
       <?php
-      const PICTURES_PATH = "uploads/";
+      const PICTURES_PATH = "uploads/pictures/";
 
       const SEARCH_FIELDS = [
         "1" => "Landscape",
@@ -58,13 +58,9 @@
           ?>
         <button type="submit">Search Tags</button>
         </form>
-
-
         <?php
       }
       ?>
-
-
     </ul>
   </nav>
 </header>

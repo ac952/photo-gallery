@@ -2,7 +2,9 @@
 
 $current_page_id = "gallery";
 
+const IMAGE_UPLOADS_PATH = "uploads/pictures/";
 const BOX_UPLOADS_PATH = "uploads/documents/";
+
 
 ?>
 <!DOCTYPE html>
@@ -53,7 +55,7 @@ const BOX_UPLOADS_PATH = "uploads/documents/";
     <div id="content-wrap2">
       <?php
       foreach($records as $record) {
-        echo "<div class='img-container'><img class='myImg' src =". $record["image"] . "/>";
+        echo "<div class='img-container'><img class='myImg' src =\"".IMAGE_UPLOADS_PATH. $record["image"] . "/>";
         echo "<p class='image_name_text'>".$record['image_name']."</p></div>";
       ?>
         <?php
@@ -71,6 +73,8 @@ foreach($records as $record){
   ?>
   <?php
 }
+
+// var_dump("print");
 
 ?>
 

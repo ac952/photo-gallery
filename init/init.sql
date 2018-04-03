@@ -26,33 +26,33 @@ CREATE TABLE pictures (
 	`image` TEXT NOT NULL,
 	`image_name` TEXT NOT NULL
 );
-INSERT INTO `pictures` (id, image, image_name) VALUES (1, 'uploads/landscape1.jpg', 'landscape1');
-INSERT INTO `pictures` (id, image, image_name) VALUES (2, 'uploads/landscape2.jpg', 'landscape2');
-INSERT INTO `pictures` (id, image, image_name) VALUES (3, 'uploads/landscape3.jpg', 'landscape3');
-INSERT INTO `pictures` (id, image, image_name) VALUES (4, 'uploads/landscape4.jpg', 'landscape4');
-INSERT INTO `pictures` (id, image, image_name) VALUES (5, 'uploads/landscape5.jpg', 'landscape5');
-INSERT INTO `pictures` (id, image, image_name) VALUES (6, 'uploads/landscape6.jpg', 'landscape6');
+INSERT INTO `pictures` (id, image, image_name) VALUES (1, 'landscape1.jpg', 'landscape1');
+INSERT INTO `pictures` (id, image, image_name) VALUES (2, 'landscape2.jpg', 'landscape2');
+INSERT INTO `pictures` (id, image, image_name) VALUES (3, 'landscape3.jpg', 'landscape3');
+INSERT INTO `pictures` (id, image, image_name) VALUES (4, 'landscape4.jpg', 'landscape4');
+INSERT INTO `pictures` (id, image, image_name) VALUES (5, 'landscape5.jpg', 'landscape5');
+INSERT INTO `pictures` (id, image, image_name) VALUES (6, 'landscape6.jpg', 'landscape6');
 
-INSERT INTO `pictures` (id, image, image_name) VALUES (7, 'uploads/new_york.jpg', 'new york');
-INSERT INTO `pictures` (id, image, image_name) VALUES (8, 'uploads/tokyo.jpg', 'tokyo');
-INSERT INTO `pictures` (id, image, image_name) VALUES (9, 'uploads/shanghai.jpg', 'shanghai');
-INSERT INTO `pictures` (id, image, image_name) VALUES (10, 'uploads/dubai.jpg', 'dubai');
+INSERT INTO `pictures` (id, image, image_name) VALUES (7, 'new_york.jpg', 'new york');
+INSERT INTO `pictures` (id, image, image_name) VALUES (8, 'tokyo.jpg', 'tokyo');
+INSERT INTO `pictures` (id, image, image_name) VALUES (9, 'shanghai.jpg', 'shanghai');
+INSERT INTO `pictures` (id, image, image_name) VALUES (10, 'dubai.jpg', 'dubai');
 
-INSERT INTO `pictures` (id, image, image_name) VALUES (11, 'uploads/jaguar.jpg', 'jaguar');
-INSERT INTO `pictures` (id, image, image_name) VALUES (12, 'uploads/penguins.jpg', 'penguins');
-INSERT INTO `pictures` (id, image, image_name) VALUES (13, 'uploads/horses.jpg', 'horses');
-INSERT INTO `pictures` (id, image, image_name) VALUES (14, 'uploads/giraffe.jpg', 'giraffe');
-INSERT INTO `pictures` (id, image, image_name) VALUES (15, 'uploads/raccoon.jpg', 'raccoon');
+INSERT INTO `pictures` (id, image, image_name) VALUES (11, 'jaguar.jpg', 'jaguar');
+INSERT INTO `pictures` (id, image, image_name) VALUES (12, 'penguins.jpg', 'penguins');
+INSERT INTO `pictures` (id, image, image_name) VALUES (13, 'horses.jpg', 'horses');
+INSERT INTO `pictures` (id, image, image_name) VALUES (14, 'giraffe.jpg', 'giraffe');
+INSERT INTO `pictures` (id, image, image_name) VALUES (15, 'raccoon.jpg', 'raccoon');
 
-INSERT INTO `pictures` (id, image, image_name) VALUES (16, 'uploads/sushi.jpg', 'sushi');
-INSERT INTO `pictures` (id, image, image_name) VALUES (17, 'uploads/ramen.jpg', 'ramen');
-INSERT INTO `pictures` (id, image, image_name) VALUES (18, 'uploads/pizza.jpg', 'pizza');
-INSERT INTO `pictures` (id, image, image_name) VALUES (19, 'uploads/curry_and_roti.jpg', 'curry and roti');
-INSERT INTO `pictures` (id, image, image_name) VALUES (20, 'uploads/greek_salad.jpg', 'greek salad');
+INSERT INTO `pictures` (id, image, image_name) VALUES (16, 'sushi.jpg', 'sushi');
+INSERT INTO `pictures` (id, image, image_name) VALUES (17, 'ramen.jpg', 'ramen');
+INSERT INTO `pictures` (id, image, image_name) VALUES (18, 'pizza.jpg', 'pizza');
+INSERT INTO `pictures` (id, image, image_name) VALUES (19, 'curry_and_roti.jpg', 'curry and roti');
+INSERT INTO `pictures` (id, image, image_name) VALUES (20, 'greek_salad.jpg', 'greek salad');
 
-INSERT INTO `pictures` (id, image, image_name) VALUES (21, 'uploads/workspace.jpg', 'workspace');
-INSERT INTO `pictures` (id, image, image_name) VALUES (22, 'uploads/bedroom.jpg', 'bedroom');
-INSERT INTO `pictures` (id, image, image_name) VALUES (23, 'uploads/painting.jpg', 'painting');
+INSERT INTO `pictures` (id, image, image_name) VALUES (21, 'workspace.jpg', 'workspace');
+INSERT INTO `pictures` (id, image, image_name) VALUES (22, 'bedroom.jpg', 'bedroom');
+INSERT INTO `pictures` (id, image, image_name) VALUES (23, 'painting.jpg', 'painting');
 
 
 CREATE TABLE tags (
@@ -103,6 +103,23 @@ INSERT INTO `image_tags` (id, pictures_id, tags_id) VALUES (20, 20, 4);
 INSERT INTO `image_tags` (id, pictures_id, tags_id) VALUES (21, 21, 5);
 INSERT INTO `image_tags` (id, pictures_id, tags_id) VALUES (22, 22, 5);
 INSERT INTO `image_tags` (id, pictures_id, tags_id) VALUES (23, 23, 5);
+
+-- one image with 3 tags
+-- picture_id 1 will have tags to landscape, cities and personal
+INSERT INTO `image_tags` (id, pictures_id, tags_id) VALUES (25, 1, 2);
+INSERT INTO `image_tags` (id, pictures_id, tags_id) VALUES (26, 1, 5);
+-- 3 images with many tags
+-- image 2, 3,4
+
+-- image 11 will have tags in personal and animal
+INSERT INTO `image_tags` (id, pictures_id, tags_id) VALUES (27, 11, 5);
+
+-- image 3 will have tags in cities and landscape
+INSERT INTO `image_tags` (id, pictures_id, tags_id) VALUES (28, 3, 2);
+
+-- image 21 will have tags, landscape,cities,personal
+INSERT INTO `image_tags` (id, pictures_id, tags_id) VALUES (29, 21, 1);
+INSERT INTO `image_tags` (id, pictures_id, tags_id) VALUES (30, 21, 2);
 
 
 COMMIT;
