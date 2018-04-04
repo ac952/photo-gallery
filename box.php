@@ -2,28 +2,23 @@
 
 $current_page_id = "box";
 
-// $db = open_or_init_sqlite_db('box.sqlite', "init/init.sql");
-
 const MAX_FILE_SIZE = 1000000;
-// const BOX_UPLOADS_PATH = "uploads/documents/";
-// const BOX_UPLOADS_PATH = "images/";
+
 const BOX_UPLOADS_PATH = "uploads/documents/";
-// const BOX_UPLOADS_PATH = "gallery/";
 
 if (isset($_POST["submit_upload"])) {
   $upload_info = $_FILES["box_file"];
-  // $upload_desc = filter_input(INPUT_POST, 'description', FILTER_SANITIZE_STRING);
 
   if ($upload_info['error'] == UPLOAD_ERR_OK) {
     $upload_name = basename($upload_info["name"]);
     $upload_ext = strtolower(pathinfo($upload_name, PATHINFO_EXTENSION) );
 
-    // $sql = "INSERT INTO documents (file_name, file_ext, description) VALUES (:filename, :extension, :description)";
+
     $sql = "INSERT INTO documents (file_name, file_ext) VALUES (:filename, :extension)";
     $params = array(
       ':extension' => $upload_ext,
       ':filename' => $upload_name,
-      // ':description' => $upload_desc,
+
     );
     $result = exec_sql_query($db, $sql, $params);
 
@@ -66,7 +61,7 @@ if (isset($_POST["submit_upload"])) {
 
     <!-- <form action="box.php" method="post" enctype="multipart/form-data"> -->
     <form action="box.php" method="post" enctype="multipart/form-data">
-      <ul>
+      <!-- <ul> -->
           <p>**You must save the photo as a .png file</p>
           <label>Photo Name:</label>
           <input type="text" name="file_name" required><br>
@@ -76,13 +71,12 @@ if (isset($_POST["submit_upload"])) {
           <input type="file" name="box_file" required><br>
           <button name="submit_upload" type="submit">Upload</button>
 
-      </ul>
+      <!-- </ul> -->
     </form>
 
     <h2>Saved Photos</h2>
     <ul>
     <?php
-    // $records = exec_sql_query($db, "SELECT * FROM documents")->fetchAll(PDO::FETCH_ASSOC);
     $records = exec_sql_query($db, "SELECT * FROM documents")->fetchAll(PDO::FETCH_ASSOC);
     foreach($records as $record){
       echo "<li><a href=\"" . BOX_UPLOADS_PATH . $record["id"] . "." . $record["file_ext"] . "\">".$record["file_name"]."</a></li>";

@@ -10,7 +10,6 @@ const SEARCH = [
 
 if (isset($_GET['search']) and isset($_GET['category'])) {
   $do_search = TRUE;
-  // $search = filter_input(INPUT_GET, 'search', FILTER_SANITIZE_STRING);
   $category = filter_input(INPUT_GET, 'category', FILTER_SANITIZE_STRING);
   $search = filter_input(INPUT_GET, 'search', FILTER_SANITIZE_STRING);
   $search = trim($search);
@@ -79,11 +78,12 @@ if (isset($_GET['search']) and isset($_GET['category'])) {
   $records = exec_sql_query($db, $sql, $params)->fetchAll(PDO::FETCH_ASSOC);
   if (isset($records) and !empty($records)) {
       foreach($records as $record) {
+
         $sql = "DELETE FROM pictures WHERE image = " . $record['image']. "";
-        unlink($record["image"]);
+        unlink(IMAGE_UPLOADS_PATH.$record["image"]);
         // $record["image"];
         // var_dump($record["image"]);
-        echo "Image was deleted";
+        echo "<p>Image was deleted</p>";
         // var_dump($record["image"]);
       }
       // } echo " Image was not delete. pls check spelling.";

@@ -25,7 +25,6 @@ $current_page_id = "login";
   ?>
 
   <form action="login.php" method="post">
-    <ul>
 
         <label>Username:</label>
         <input type="text" name="username" required/><br>
@@ -34,8 +33,6 @@ $current_page_id = "login";
         <input type="password" name="password" required/></br>
 
         <button name="login" type="submit">Log In</button>
-
-    </ul>
   </form>
 </div>
 

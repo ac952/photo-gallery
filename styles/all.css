@@ -66,6 +66,9 @@ button{
   margin-top: 20px;
   padding: 10px;
   font-size: 20px;
+  border-radius: 5px;
+  /* background-color: s;
+  color: white; */
 }
 
 
@@ -82,6 +85,21 @@ button{
   text-align: center;
 
 }
+
+/* styling for the form */
+label{
+  font-size: 20px;
+}
+
+input{
+  font-size: 20px;
+  margin-bottom: 20px;
+}
+
+select{
+  font-size: 20px;
+}
+
 
 
 /* https://stackoverflow.com/questions/12294367/html-

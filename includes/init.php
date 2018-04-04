@@ -1,22 +1,5 @@
 <?php
 
-// $homepages = array(
-//   "index" => "Home",
-//   "login"=> "Log in"
-//   // "logout"=> "Log out",
-//
-// );
-
-// only show these pages if user is logged in
-// $show = array(
-//
-//   "box"=> "Add Photo"
-// );
-//
-// $logout = array(
-//   "logout"=> "Log out"
-// );
-
 $homepages = array(
   "index" => "Home",
   "login"=> "Log in"
@@ -27,13 +10,13 @@ $everything = array(
   "login"=> "Log in",
   "box"=> "Add Photo",
   "delete" => "Delete Photo",
+  "edit" => "Edit Tags",
   "logout"=> "Log out"
 );
 
 
 $pages = array(
   "gallery"=> "Gallery",
-  // "search" =>"Select Tags:"
 );
 
 // An array to deliver messages to the user.

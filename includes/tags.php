@@ -3,7 +3,7 @@
   <nav role="sub">
     <ul>
       <?php
-      const PICTURES_PATH = "uploads/pictures/";
+      // const IMAGE_UPLOADS_PATH = "uploads/pictures/";
 
       const SEARCH_FIELDS = [
         "1" => "Landscape",
