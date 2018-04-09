@@ -10,10 +10,9 @@ $everything = array(
   "login"=> "Log in",
   "box"=> "Add Photo",
   "delete" => "Delete Photo",
-  "edit" => "Edit Tags",
+  "edit" => "View / Edit Tags",
   "logout"=> "Log out"
 );
-
 
 $pages = array(
   "gallery"=> "Gallery",

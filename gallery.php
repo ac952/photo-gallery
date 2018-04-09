@@ -5,7 +5,6 @@ $current_page_id = "gallery";
 const IMAGE_UPLOADS_PATH = "uploads/pictures/";
 const BOX_UPLOADS_PATH = "uploads/documents/";
 
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -31,13 +30,11 @@ const BOX_UPLOADS_PATH = "uploads/documents/";
     // if user clicks on a tag checkbox
         // $sql = "SELECT pictures.image FROM pictures LEFT OUTER JOIN image_tags ON
         // pictures.id = image_tags.pictures_id WHERE image_tags.tags_id = :category";
-
         $sql = "SELECT pictures.image, pictures.image_name FROM pictures LEFT OUTER JOIN image_tags ON
         pictures.id = image_tags.pictures_id WHERE image_tags.tags_id = :category";
         // var_dump($sql);
         $params = array(':category' => $category);
         // var_dump("d");
-
       } else{
         $sql = "SELECT * FROM pictures";
         $params = array();
@@ -48,7 +45,6 @@ const BOX_UPLOADS_PATH = "uploads/documents/";
         $params = array();
         // var_dump("f");
       }
-
       $records = exec_sql_query($db, $sql, $params)->fetchAll(PDO::FETCH_ASSOC);
       // var_dump($records);
       if (isset($records) and !empty($records)) {
@@ -59,6 +55,8 @@ const BOX_UPLOADS_PATH = "uploads/documents/";
         echo "<div class='img-container'><img class='myImg' src =" .IMAGE_UPLOADS_PATH. $record["image"] . "/>";
         // var_dump($record["image"]);
         echo "<p class='image_name_text'>".$record['image_name']."</p></div>";
+        // echo the tag
+        // echo "<p>".$record['tag_name']."</p>";
       ?>
         <?php
       }
@@ -75,11 +73,7 @@ foreach($records as $record){
   ?>
   <?php
 }
-
-// var_dump("print");
-
 ?>
-
 </div>
 
 <!-- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal_img -->

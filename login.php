@@ -32,7 +32,7 @@ $current_page_id = "login";
         <label>Password:</label>
         <input type="password" name="password" required/></br>
 
-        <button name="login" type="submit">Log In</button>
+        <button class="searchlogin" name="login" type="submit">Log In</button>
   </form>
 </div>
 

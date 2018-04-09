@@ -56,7 +56,7 @@
             <?php
           }
           ?>
-        <button type="submit">Search Tags</button>
+        <button class="searchlogin" type="submit">Search Tags</button>
         </form>
         <?php
       }

@@ -61,9 +61,8 @@ if (isset($_GET['search']) and isset($_GET['category'])) {
         ?>
       </select>
       <input type="text" name="search"/><br>
-      <button name="submit_delete" type="submit">Delete</button>
+      <button class="dltbtn" name="submit_delete" type="submit">Delete</button>
   </form>
-
 
   <?php
   if($do_search) {
@@ -78,15 +77,14 @@ if (isset($_GET['search']) and isset($_GET['category'])) {
   $records = exec_sql_query($db, $sql, $params)->fetchAll(PDO::FETCH_ASSOC);
   if (isset($records) and !empty($records)) {
       foreach($records as $record) {
-
+// delete tag name as well
         $sql = "DELETE FROM pictures WHERE image = " . $record['image']. "";
+
         unlink(IMAGE_UPLOADS_PATH.$record["image"]);
-        // $record["image"];
-        // var_dump($record["image"]);
+
         echo "<p>Image was deleted</p>";
-        // var_dump($record["image"]);
       }
-      // } echo " Image was not delete. pls check spelling.";
+       echo "<p>Image was not deleted.</p>";
     }
 
   ?>
