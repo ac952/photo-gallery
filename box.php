@@ -2,7 +2,7 @@
 
 $current_page_id = "box";
 
-const MAX_FILE_SIZE = 1000000;
+const MAX_FILE_SIZE = 100000;
 
 const BOX_UPLOADS_PATH = "uploads/documents/";
 

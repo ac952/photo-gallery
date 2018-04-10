@@ -20,47 +20,56 @@ $current_page_id = "edit";
 <?php include("includes/tags.php");?>
 
 <?php
-if (isset($_GET['tagname'])){
+if (isset($_GET['category']) or isset($_GET['search'])){
   $do_search = TRUE;
-  $tagname = filter_input(INPUT_GET,'tagname', FILTER_SANITIZE_STRING);
-  if(in_array($tagname, array_keys(SEARCH_FIELDS))){
-    $tagsearch = $tagname;
+  $search = filter_input(INPUT_GET,'search', FILTER_SANITIZE_STRING);
+  $category = filter_input(INPUT_GET,'category', FILTER_SANITIZE_STRING);
+  $search = trim($search);
+  if(in_array($category, array_keys(SEARCH_FIELDS))){
+    $search_field = $category;
   } else{
-    $tagsearch = NULL;
+    $search_field = NULL;
     array_push($messages, "Invalid tag for search");
-    $do_search = TRUE;
+    $do_search = FALSE;
     }
   } else{
     $do_search = FALSE;
-    $tagname = NULL;
+    $category = NULL;
+    $search = NULL;
   }
-
-
-
-
 ?>
-
 
 <div id="content-wrap">
   <h1>View Tag(s):</h1>
   <p>**Image name is case sensitive.</p>
-  <form  action="edit.php" method="post" enctype="multipart/form-data">
+  <form  action="edit.php" method="get" enctype="multipart/form-data">
     <!-- search by tag name -->
     <label>Image Name:</label>
-    <input type="text" name ="imagename"></input><br>
+    <input type="text" name ="search"></input><br>
 
     <button class="uploadbtn" type="submit" name="view_tag">View Tag</button>
   </form>
 
-
+  <?php
+    $sql = "SELECT tags.tag_name FROM tags LEFT OUTER JOIN image_tags ON
+              tags.id = image_tags.tags_id LEFT OUTER JOIN pictures ON
+              pictures.id = image_tags.pictures_id WHERE pictures.image_name = :search";
+    $params = array(':search' => $search);
+    $records = exec_sql_query($db, $sql, $params)->fetchAll(PDO::FETCH_ASSOC);
+    if(isset($records) and !empty($records)){
+      foreach ($records as $record){
+        echo "<p id='viewTag'>".$record['tag_name']."</p>";
+      }
+  }
+  ?>
 
 <h1>Add A Tag to Photo:</h1>
-<p>**Image name is case sensitive.</p>
-<form  action="edit.php" method="post" enctype="multipart/form-data">
+<p>**Must submit image number.</p>
+<form action="edit.php" method="post" enctype="multipart/form-data">
   <!-- search by tag name -->
-  <label>Image Name:</label>
-  <input type="text" name ="imagename"></input>
-  <select name="tag">
+  <label>Image #:</label>
+  <input type="number" name ="search"></input>
+  <select name="category">
     <option value="" selected disabled>Tag Name:</option>
     <?php
     foreach(SEARCH_FIELDS as $field_name => $label){
@@ -73,15 +82,36 @@ if (isset($_GET['tagname'])){
   <button class="uploadbtn" type="submit" name="submit_add_tag">Add Tag</button>
 </form>
 
+<?php
+if(isset($_POST["submit_add_tag"])){
+    $category = filter_input(INPUT_POST, 'category', FILTER_SANITIZE_STRING);
+    $search = filter_input(INPUT_POST, 'search', FILTER_SANITIZE_NUMBER_INT);
+
+    $sql = "INSERT INTO image_tags (pictures_id, tags_id) VALUES (:search, :category)";
+    $params = array(
+          ':search' => $search,
+          ':category' => $category
+      );
+var_dump($params);
+    $result = exec_sql_query($db, $sql, $params);
+      if ($result){
+        echo "<p>Tag is added to the photo</p>";
+      }else{
+        echo"<p>Tag is not added to the photo</p>";
+      }
+    }
+
+?>
+
 
 <div id="deleteformat">
 <h1>Delete A Tag From Photo:</h1>
 <p>**Image name is case sensitive.</p>
-<form action="edit.php" method="post" enctype="multipart/form-data">
+<form action="edit.php" method="get" enctype="multipart/form-data">
     <!-- search by image name -->
-    <label>Image Name:</label>
-  <input type="text" name ="imagename"></input>
-  <select name="tag">
+    <label>Image #:</label>
+    <input type="number" name ="search"></input>
+  <select name="category">
     <option value="" selected disabled>Tag Name:</option>
     <?php
     foreach(SEARCH_FIELDS as $field_name => $label){
@@ -93,7 +123,32 @@ if (isset($_GET['tagname'])){
   <select>
   <button class="dltbtn" type="submit" name="submit_delete_tag">Remove Tag</button>
 </form>
+
+
+  <?php
+  $sql = "SELECT image_tags.tags_id, image_tags.pictures_id FROM
+          image_tags WHERE image_tags.tags_id = :category
+          AND image_tags.pictures_id =  :search ";
+  $params = array(
+        ':search' => $search,
+        ':category' => $category
+        );
+  // var_dump($params);
+  // var_dump($search);
+  $records = exec_sql_query($db, $sql, $params)->fetchAll(PDO::FETCH_ASSOC);
+  if(isset($records) and !empty($records)){
+    foreach ($records as $record){
+      $sql = "DELETE FROM image_tags WHERE pictures_id =
+      " . $record['pictures_id']. " AND tags_id = " . $record['tags_id']. "";
+      // echo "<p id='viewTag'>".$record['tag_name']."</p>";
+      // var_dump($record['pictures_id']);
+    }
+    echo "<p>Your tag has been deleted from the photo.</p>";
+  }
+
+  ?>
 </div>
+
 
 </div>
 

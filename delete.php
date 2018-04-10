@@ -1,7 +1,7 @@
 <?php include('includes/init.php');
 
 $current_page_id = "delete";
-
+const IMAGE_UPLOADS_PATH = "uploads/pictures/";
 const SEARCH = [
   // image_name is the name of the image
   "image_name" => "Image Name",
@@ -69,10 +69,12 @@ if (isset($_GET['search']) and isset($_GET['category'])) {
     // $sql = "SELECT * FROM pictures WHERE ".$search_field." LIKE '%' || :search || '%'";
     $sql = "SELECT image FROM pictures WHERE image_name =  :search ";
     $params = array(':search' => $search);
-    var_dump("print");
+    // var_dump($params);
+    // var_dump("print");
   } else{
     $sql = "SELECT image FROM pictures WHERE image_name =  :search ";
     $params = array(':search' => $search);
+    // var_dump($params);
   }
   $records = exec_sql_query($db, $sql, $params)->fetchAll(PDO::FETCH_ASSOC);
   if (isset($records) and !empty($records)) {
@@ -81,11 +83,12 @@ if (isset($_GET['search']) and isset($_GET['category'])) {
         $sql = "DELETE FROM pictures WHERE image = " . $record['image']. "";
 
         unlink(IMAGE_UPLOADS_PATH.$record["image"]);
-
+    
         echo "<p>Image was deleted</p>";
       }
-       echo "<p>Image was not deleted.</p>";
+
     }
+
 
   ?>
 </div>
