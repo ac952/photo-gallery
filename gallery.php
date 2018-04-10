@@ -30,8 +30,9 @@ const BOX_UPLOADS_PATH = "uploads/documents/";
     // if user clicks on a tag checkbox
         // $sql = "SELECT pictures.image FROM pictures LEFT OUTER JOIN image_tags ON
         // pictures.id = image_tags.pictures_id WHERE image_tags.tags_id = :category";
-        $sql = "SELECT pictures.image, pictures.image_name FROM pictures LEFT OUTER JOIN image_tags ON
-        pictures.id = image_tags.pictures_id WHERE image_tags.tags_id = :category";
+        $sql = "SELECT pictures.id, pictures.image, pictures.image_name FROM
+        pictures LEFT OUTER JOIN image_tags ON pictures.id = image_tags.pictures_id
+        WHERE image_tags.tags_id = :category";
         // var_dump($sql);
         $params = array(':category' => $category);
         // var_dump("d");
@@ -53,10 +54,8 @@ const BOX_UPLOADS_PATH = "uploads/documents/";
       <?php
       foreach($records as $record) {
         echo "<div class='img-container'><img class='myImg' src =" .IMAGE_UPLOADS_PATH. $record["image"] . "/>";
-        // var_dump($record["image"]);
-        echo "<p class='image_name_text'>".$record['image_name']."</p></div>";
-        // echo the tag
-        // echo "<p>".$record['tag_name']."</p>";
+        echo "<p class='image_name_text'> Image #: ".$record['id']."</p>";
+        echo "<p class='image_name_text'> Image Name: ".$record['image_name']."</p></div>";
       ?>
         <?php
       }
@@ -69,7 +68,8 @@ $records = exec_sql_query($db, "SELECT * FROM documents")->fetchAll(PDO::FETCH_A
 foreach($records as $record){
   echo "<div class='img-container'>
   <img class = 'myImg' src=\"" . BOX_UPLOADS_PATH . $record["id"] . "." . $record["file_ext"] . "\">";
-  echo "<p class='image_name_text'>".$record['file_name']."</p></div>";
+  echo "<p class='image_name_text'> Image #: ".$record['id']."</p>";
+  echo "<p class='image_name_text'>Image Name: ".$record['file_name']."</p></div>";
   ?>
   <?php
 }

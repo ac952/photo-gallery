@@ -103,10 +103,9 @@ var_dump($params);
 
 ?>
 
-
 <div id="deleteformat">
 <h1>Delete A Tag From Photo:</h1>
-<p>**Image name is case sensitive.</p>
+<p>**Must submit image number.</p>
 <form action="edit.php" method="get" enctype="multipart/form-data">
     <!-- search by image name -->
     <label>Image #:</label>
