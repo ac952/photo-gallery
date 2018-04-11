@@ -2,7 +2,8 @@
 
 $homepages = array(
   "index" => "Home",
-  "login"=> "Log in"
+  "login"=> "Log in",
+  "edit" => "View / Edit Tags",
 );
 
 $everything = array(
@@ -10,7 +11,7 @@ $everything = array(
   "login"=> "Log in",
   "box"=> "Add Photo",
   "delete" => "Delete Photo",
-  "edit" => "View / Edit Tags",
+
   "logout"=> "Log out"
 );
 
@@ -111,8 +112,6 @@ function log_in($username, $password) {
       // Check password against hash in DB
       if ( password_verify($password, $account['password']) ) {
         // Generate session
-        // Warning! Not a secure method for generating session IDs!
-        // TODO: secure session
         $session = uniqid();
         $sql = "UPDATE accounts SET session = :session WHERE id = :user_id;";
         $params = array(

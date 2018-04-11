@@ -18,7 +18,7 @@ CREATE TABLE documents (
 	file_name TEXT NOT NULL,
 	file_ext TEXT NOT NULL
 );
-INSERT INTO documents (id, file_name, file_ext) VALUES (2, 'landscape', 'png');
+INSERT INTO documents (id, file_name, file_ext) VALUES (24, 'landscape', 'jpg');
 
 
 CREATE TABLE pictures (

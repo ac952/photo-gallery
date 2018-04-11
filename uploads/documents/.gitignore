@@ -14,5 +14,28 @@
 /pictures/*
 
 # Tell Git to NOT ignore your EACH seed file in your your upload folders.
-!/documents/1.pdf
-!/pictures/1.pdf
+!/documents/24.jpg
+
+!/pictures/bedroom.jpg
+!/pictures/curry_and_roti.jpg
+!/pictures/dubai.jpg
+!/pictures/giraffe.jpg
+!/pictures/greek_salad.jpg
+!/pictures/horses.jpg
+!/pictures/jaguar.jpg
+!/pictures/landscape1.jpg
+!/pictures/landscape2.jpg
+!/pictures/landscape3.jpg
+!/pictures/landscape4.jpg
+!/pictures/landscape5.jpg
+!/pictures/landscape6.jpg
+!/pictures/new_york.jpg
+!/pictures/painting.jpg
+!/pictures/penguins.jpg
+!/pictures/pizza.jpg
+!/pictures/raccoon.jpg
+!/pictures/ramen.jpg
+!/pictures/shanghai.jpg
+!/pictures/sushi.jpg
+!/pictures/tokyo.jpg
+!/pictures/workspace.jpg

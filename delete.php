@@ -66,30 +66,20 @@ if (isset($_GET['search']) and isset($_GET['category'])) {
 
   <?php
   if($do_search) {
-    // $sql = "SELECT * FROM pictures WHERE ".$search_field." LIKE '%' || :search || '%'";
     $sql = "SELECT image FROM pictures WHERE image_name =  :search ";
     $params = array(':search' => $search);
-    // var_dump($params);
-    // var_dump("print");
   } else{
     $sql = "SELECT image FROM pictures WHERE image_name =  :search ";
     $params = array(':search' => $search);
-    // var_dump($params);
   }
   $records = exec_sql_query($db, $sql, $params)->fetchAll(PDO::FETCH_ASSOC);
   if (isset($records) and !empty($records)) {
       foreach($records as $record) {
-// delete tag name as well
         $sql = "DELETE FROM pictures WHERE image = " . $record['image']. "";
-
         unlink(IMAGE_UPLOADS_PATH.$record["image"]);
-    
         echo "<p>Image was deleted</p>";
       }
-
     }
-
-
   ?>
 </div>
 </body>

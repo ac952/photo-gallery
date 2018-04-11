@@ -6,7 +6,6 @@ if (!$current_user) {
   record_message("You've been successfully logged out.");
 }
 
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -28,7 +27,7 @@ if (!$current_user) {
     <?php
     print_messages();
     ?>
-    
+
   </div>
 </body>
 </html>

@@ -2,7 +2,7 @@
 
 $current_page_id = "box";
 
-const MAX_FILE_SIZE = 100000;
+const MAX_FILE_SIZE = 1000000;
 
 const BOX_UPLOADS_PATH = "uploads/documents/";
 
@@ -62,7 +62,7 @@ if (isset($_POST["submit_upload"])) {
     <!-- <form action="box.php" method="post" enctype="multipart/form-data"> -->
     <form action="box.php" method="post" enctype="multipart/form-data">
       <!-- <ul> -->
-          <p>**You must save the photo as a .png file</p>
+          <p>**You must save the photo as a .jpg file</p>
           <label>Photo Name:</label>
           <input type="text" name="file_name" required><br>
           <label>Upload Photo:</label>
