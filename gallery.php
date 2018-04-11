@@ -28,8 +28,6 @@ const BOX_UPLOADS_PATH = "uploads/documents/";
     ?>
     <?php
     // if user clicks on a tag checkbox
-        // $sql = "SELECT pictures.image FROM pictures LEFT OUTER JOIN image_tags ON
-        // pictures.id = image_tags.pictures_id WHERE image_tags.tags_id = :category";
         $sql = "SELECT pictures.id, pictures.image, pictures.image_name FROM
         pictures LEFT OUTER JOIN image_tags ON pictures.id = image_tags.pictures_id
         WHERE image_tags.tags_id = :category";

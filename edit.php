@@ -106,8 +106,7 @@ var_dump($params);
 <div id="deleteformat">
 <h1>Delete A Tag From Photo:</h1>
 <p>**Must submit image number.</p>
-<form action="edit.php" method="get" enctype="multipart/form-data">
-    <!-- search by image name -->
+<form action="edit.php" method="post" enctype="multipart/form-data">
     <label>Image #:</label>
     <input type="number" name ="search"></input>
   <select name="category">
@@ -125,25 +124,25 @@ var_dump($params);
 
 
   <?php
-  $sql = "SELECT image_tags.tags_id, image_tags.pictures_id FROM
-          image_tags WHERE image_tags.tags_id = :category
-          AND image_tags.pictures_id =  :search ";
-  $params = array(
-        ':search' => $search,
-        ':category' => $category
+
+  if(isset($_POST["submit_delete_tag"])){
+      $category = filter_input(INPUT_POST, 'category', FILTER_SANITIZE_STRING);
+      $search = filter_input(INPUT_POST, 'search', FILTER_SANITIZE_NUMBER_INT);
+
+      $sql = "DELETE FROM image_tags WHERE pictures_id = (:search) AND tags_id = (:category)";
+      $params = array(
+            ':search' => $search,
+            ':category' => $category
         );
-  // var_dump($params);
-  // var_dump($search);
-  $records = exec_sql_query($db, $sql, $params)->fetchAll(PDO::FETCH_ASSOC);
-  if(isset($records) and !empty($records)){
-    foreach ($records as $record){
-      $sql = "DELETE FROM image_tags WHERE pictures_id =
-      " . $record['pictures_id']. " AND tags_id = " . $record['tags_id']. "";
-      // echo "<p id='viewTag'>".$record['tag_name']."</p>";
-      // var_dump($record['pictures_id']);
-    }
-    echo "<p>Your tag has been deleted from the photo.</p>";
-  }
+
+  var_dump($params);
+      $result = exec_sql_query($db, $sql, $params);
+        if ($result){
+          echo "<p>Tag is deleted from the photo</p>";
+        }else{
+          echo"<p>Tag is not deleted from the photo</p>";
+        }
+      }
 
   ?>
 </div>
