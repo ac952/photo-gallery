@@ -60,6 +60,7 @@ if (isset($_GET['search']) and isset($_GET['category'])) {
         }
         ?>
       </select>
+    
       <input type="text" name="search"/><br>
       <button class="dltbtn" name="submit_delete" type="submit">Delete</button>
   </form>
@@ -77,7 +78,7 @@ if (isset($_GET['search']) and isset($_GET['category'])) {
       foreach($records as $record) {
         $sql = "DELETE FROM pictures WHERE image = " . $record['image']. "";
         unlink(IMAGE_UPLOADS_PATH.$record["image"]);
-        echo "<p>Image was deleted</p>";
+        echo "<p class='tagsuccess'>Image was deleted</p>";
       }
     }
   ?>

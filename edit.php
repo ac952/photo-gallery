@@ -95,9 +95,9 @@ if(isset($_POST["submit_add_tag"])){
 var_dump($params);
     $result = exec_sql_query($db, $sql, $params);
       if ($result){
-        echo "<p>Tag is added to the photo</p>";
+        echo "<p class='tagsuccess'>Tag is added to the photo</p>";
       }else{
-        echo"<p>Tag is not added to the photo</p>";
+        echo"<p class='tagfail'>Tag is not added to the photo</p>";
       }
     }
 
@@ -138,9 +138,9 @@ var_dump($params);
   var_dump($params);
       $result = exec_sql_query($db, $sql, $params);
         if ($result){
-          echo "<p>Tag is deleted from the photo</p>";
+          echo "<p class='tagsuccess'>Tag is deleted from the photo</p>";
         }else{
-          echo"<p>Tag is not deleted from the photo</p>";
+          echo"<p class='tagfail'>Tag is not deleted from the photo</p>";
         }
       }
 
