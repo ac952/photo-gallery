@@ -29,7 +29,7 @@ nav li {
 /* https://stackoverflow.com/questions/26322715/two-nav-elements-in-css */
 
 nav ul li {
-  background-color: #e3e5e8;
+  /* background-color: #e3e5e8; */
   margin: 0;
   padding: 20px;
   display: inline;
@@ -48,6 +48,13 @@ nav #current_page{
   top: 100px;
   left:80px;
   color: green;
+  background-color: none;
+}
+
+#checkboxes{
+  position: absolute;
+  top:150px;
+  left:100px;
 }
 
 button{

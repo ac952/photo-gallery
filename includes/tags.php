@@ -30,21 +30,11 @@
         $category = NULL;
       }
 
-      // if current user logged in, they will have access to the gallery
-      if ($current_user){
-        foreach($pages as $i => $value) {
-          if ($current_page_id == $i) {
-            $id =  "id='current_page'";
-          } else {
-            $id = "";
-          }
-          echo "<a class='btn' ". $id. " href='". $i. ".php'>$value</a>";
-
-        }
         ?>
         <!-- checkboxes for each tag, form action or results occur on search.php-->
         <!-- if the tag field is not empty, do search -->
-        <form action="gallery.php" method="get">
+        <form id="checkboxes" action="gallery.php" method="get">
+          <h2>Select Tags:</h2>
           <?php
           foreach(SEARCH_FIELDS as $field_name => $label){
             ?>
@@ -58,7 +48,7 @@
         <button class="searchlogin" type="submit">Search Tags</button>
         </form>
         <?php
-      }
+      // }
       ?>
     <!-- </ul> -->
   </nav>
