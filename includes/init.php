@@ -11,6 +11,7 @@ $everything = array(
   "login"=> "Log in",
   "box"=> "Add Photo",
   "delete" => "Delete Photo",
+  "edit" => "View / Edit Tags",
   "gallery"=> "Gallery",
   "logout"=> "Log out"
 );
