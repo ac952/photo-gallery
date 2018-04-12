@@ -314,9 +314,11 @@ and a submit value
 ```
 In order to improve scalability, I did not create a new page for
 each tag. I made a checklist so that users can see the updated photos
-of the tags they selected. In my edit.php, I added three forms for viewing,
-deleting, and adding tags to my database. Users can delete photos in delete.php.
-In my gallery.php, I decided to return the image # and image name so all
-users can fill out the forms without checking what their image # is. I also
-added javascript so that individual images can be viewed on a full screen.
+of the tags they selected. In my edit.php, I added three forms for viewing, deleting, and adding tags to my database. Users can delete photos in delete.php.In my gallery.php, I decided to return the image # and image name so all users can fill out the forms without checking what their image # is. I also added javascript to gallery.php so that individual images can be viewed on a full screen.
+
+
+changes to the database:
+I created three tables to reference tags and images and used the foreign
+keys pictures_id and tags_id.
+
 ```
