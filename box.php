@@ -36,7 +36,7 @@ if (isset($_POST["submit_upload"])) {
 }
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
@@ -57,7 +57,7 @@ if (isset($_POST["submit_upload"])) {
   }
    ?>
 
-    <h1>Upload a Photo to Your Gallery</h2>
+    <h1>Upload a Photo to Your Gallery</h1>
 
     <!-- <form action="box.php" method="post" enctype="multipart/form-data"> -->
     <form action="box.php" method="post" enctype="multipart/form-data">

@@ -4,7 +4,7 @@ $current_page_id = "login";
 // $db = open_or_init_sqlite_db("website.sqlite", "init/init.sql");
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
@@ -30,7 +30,7 @@ $current_page_id = "login";
         <input type="text" name="username" required/><br>
 
         <label>Password:</label>
-        <input type="password" name="password" required/></br>
+        <input type="password" name="password" required/><br>
 
         <button class="searchlogin" name="login" type="submit">Log In</button>
   </form>

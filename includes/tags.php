@@ -1,7 +1,6 @@
 <header>
-  <h1 id="title"></h1>
-  <nav role="sub">
-    <ul>
+  <nav>
+    <!-- <ul> -->
       <?php
       // const IMAGE_UPLOADS_PATH = "uploads/pictures/";
 
@@ -39,7 +38,7 @@
           } else {
             $id = "";
           }
-          echo "<li><a class='btn' ". $id. " href='". $i. ".php'>$value</a></li>";
+          echo "<a class='btn' ". $id. " href='". $i. ".php'>$value</a>";
 
         }
         ?>
@@ -61,6 +60,6 @@
         <?php
       }
       ?>
-    </ul>
+    <!-- </ul> -->
   </nav>
 </header>

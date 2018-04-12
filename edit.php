@@ -4,7 +4,7 @@ $current_page_id = "edit";
 
 ?>
 <!DOCTYPE html>
-<html>
+<html lang ="en">
 
 <head>
   <meta charset="UTF-8" />
@@ -45,7 +45,7 @@ if (isset($_GET['category']) or isset($_GET['search'])){
   <form  action="edit.php" method="get" enctype="multipart/form-data">
     <!-- search by tag name -->
     <label>Image Name:</label>
-    <input type="text" name ="search"></input><br>
+    <input type="text" name ="search"><br>
 
     <button class="uploadbtn" type="submit" name="view_tag">View Tag</button>
   </form>
@@ -68,7 +68,7 @@ if (isset($_GET['category']) or isset($_GET['search'])){
 <form action="edit.php" method="post" enctype="multipart/form-data">
   <!-- search by tag name -->
   <label>Image #:</label>
-  <input type="number" name ="search"></input>
+  <input type="number" name ="search">
   <select name="category">
     <option value="" selected disabled>Tag Name:</option>
     <?php
@@ -78,7 +78,7 @@ if (isset($_GET['category']) or isset($_GET['search'])){
       <?php
     }
     ?>
-  <select>
+  </select>
   <button class="uploadbtn" type="submit" name="submit_add_tag">Add Tag</button>
 </form>
 
@@ -108,7 +108,7 @@ var_dump($params);
 <p>**Must submit image number.</p>
 <form action="edit.php" method="post" enctype="multipart/form-data">
     <label>Image #:</label>
-    <input type="number" name ="search"></input>
+    <input type="number" name ="search">
   <select name="category">
     <option value="" selected disabled>Tag Name:</option>
     <?php
@@ -118,7 +118,7 @@ var_dump($params);
       <?php
     }
     ?>
-  <select>
+  </select>
   <button class="dltbtn" type="submit" name="submit_delete_tag">Remove Tag</button>
 </form>
 

@@ -7,13 +7,13 @@ const BOX_UPLOADS_PATH = "uploads/documents/";
 
 ?>
 <!DOCTYPE html>
-<html>
+<html lang ="en">
 
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" type="text/css" href="styles/all.css" media="all" />
-  <script type="text/javascript" src="script/jquery-3.2.1.min.js"></script>
+  <script src="script/jquery-3.2.1.min.js"></script>
 
   <title>Gallery</title>
 </head>
@@ -51,7 +51,7 @@ const BOX_UPLOADS_PATH = "uploads/documents/";
     <div id="content-wrap2">
       <?php
       foreach($records as $record) {
-        echo "<div class='img-container'><img class='myImg' src =" .IMAGE_UPLOADS_PATH. $record["image"] . "/>";
+        echo "<div class='img-container'><img class='myImg' alt ='image' src =" .IMAGE_UPLOADS_PATH. $record["image"] . "/>";
         echo "<p class='image_name_text'> Image #: ".$record['id']."</p>";
         echo "<p class='image_name_text'> Image Name: ".$record['image_name']."</p></div>";
       ?>
@@ -65,7 +65,7 @@ $records = exec_sql_query($db, "SELECT * FROM documents")->fetchAll(PDO::FETCH_A
 // var_dump("doc");
 foreach($records as $record){
   echo "<div class='img-container'>
-  <img class = 'myImg' src=\"" . BOX_UPLOADS_PATH . $record["id"] . "." . $record["file_ext"] . "\">";
+  <img class = 'myImg' alt='image' src=\"" . BOX_UPLOADS_PATH . $record["id"] . "." . $record["file_ext"] . "\">";
   echo "<p class='image_name_text'> Image #: ".$record['id']."</p>";
   echo "<p class='image_name_text'>Image Name: ".$record['file_name']."</p></div>";
   ?>
@@ -79,12 +79,12 @@ foreach($records as $record){
   <!-- The Close Button -->
   <span class="close" onclick="document.getElementById('myModal').style.display='none'">&times;</span>
   <!-- Modal Content (The Image) -->
-  <img class="modal-content" id="img01">
+  <img class="modal-content" src="none" alt ="image" id="img01">
   <!-- Modal Caption (Image Text) -->
   <div id="caption"></div>
 </div>
 
-<script type = "text/javascript" src="script/gallery.js"></script>
+<script src="script/gallery.js"></script>
 
 </body>
 </html>

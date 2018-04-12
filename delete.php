@@ -30,7 +30,7 @@ if (isset($_GET['search']) and isset($_GET['category'])) {
 
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="UTF-8" />
